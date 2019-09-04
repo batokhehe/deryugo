@@ -1,0 +1,186 @@
+@extends('layouts.tools.brand.master.master')
+@section('content')
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+	<div class="content-header">
+	  <h1>
+    Campaign
+    <small>Brand</small>
+    </h1>
+	</div>
+    <!-- Main content -->
+    <section class="content container-fluid">
+      <!--------------------------
+        | Your Page Content Here |
+        -------------------------->
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs pull-right">
+            <li class=""><a href="#brief_tab" data-toggle="tab" aria-expanded="false" id="second_tab">Brief</a></li>
+            <li class="active"><a href="#form_tab" data-toggle="tab" aria-expanded="true" id="first_tab">Form</a></li>
+            <li class="pull-left header"><i class="fa fa-bullhorn"></i> Show Campaign </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="form_tab">
+            <!-- form start -->
+                <div class="box-body">
+                  <div class="form-group col-md-12">
+                    <label class="col-md-2 control-label">Campaign Name</label>
+                    <div class="col-md-10">
+                      {{ $data->name }}
+                    </div>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="col-md-2 control-label">Campaign Period</label>
+                    <div class="col-md-10">
+                      {{ date('d M Y', strtotime($data->start_date)) . ' - ' . date('d M Y', strtotime($data->end_date)) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group form-group">
+                      <div class="input-group-btn">
+                        <label type="text" class="btn btn-danger">Engagement Plan</label>
+                      </div>
+                      {{ $data->plan_engagement }}
+                    </div>
+                    <div class="input-group form-group">
+                      <div class="input-group-btn">
+                        <label type="text" class="btn btn-success">Budget Plan</label>
+                      </div>
+                      {{ $data->plan_budget }}
+                    </div>
+                    <div class="input-group form-group">
+                      <div class="input-group-btn">
+                        <label type="text" class="btn btn-warning">Cost/Engagement</label>
+                      </div>
+                      {{ $data->plan_cost }}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="callout callout-info">
+                      <h4>
+                      <i class="fa fa-info"></i>
+                      Note
+                      </h4>
+
+                      <p>3 Parameter, Engagement, Budget, and Cost/engagement will follows as many Picked KOL</p>
+                    </div>
+                  </div>
+                  
+                </div>
+                <!-- /.box-body -->
+                <div class="box-body">
+                    <table id="datatables" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>NO</th>
+                        <th>NAME</th>
+                        <th></th>
+                        <th>INTEREST</th>
+                        <th>ENGAGEMENT RATE</th>
+                        <th>TYPE</th>
+                        <th>FOLLOWERS</th>
+                        <th>STATUS</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        @php $i = 1 @endphp
+                        @foreach ($details as $detail)
+                        <tr>
+                          <td>{{ $i }}</td>
+                          <td>{{ $detail->name }}</td>
+                          <td><img class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ url('assets/images/influencer/' . $detail->image ) }}" alt="User profile picture"></td>
+                          <td>{{ $detail->category_name }}</td>
+                          <td>{{ $detail->engagement_rate * 100 . "%" }}</td>
+                          <td>{{ $detail->type }}</td>
+                          <td>{{ $detail->followers }}</td>
+                          <td>
+                            @if ($detail->campaign_influencer_status == '1' || $detail->campaign_influencer_status == '2' || $detail->campaign_influencer_status == '3')
+                            <a href="#" type="button" class="btn-sm btn-success">JOINED</a>
+                            @elseif ($detail->campaign_influencer_status == '0')
+                            <a href="#" type="button" class="btn-sm btn-warning">WAITING</a>
+                            @elseif ($detail->campaign_influencer_status == '9')
+                            <a href="#" type="button" class="btn-sm btn-danger">SNUBS</a>
+                            @endif
+                          </td>
+                          <td>
+                            @if ($detail->campaign_influencer_status != '0')
+                            <a href="{{ route('brand.campaign.draft', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
+                            @endif
+                          </td>
+                          <td>
+                            @if ($detail->campaign_influencer_status == '3')
+                            <a href="#" type="button" class="btn-sm btn-danger">DECLINE</a>
+                            @elseif ($detail->campaign_influencer_status == '2')
+                            <a href="#" type="button" class="btn-sm btn-success">ACCEPTED</a>
+                            @endif
+                          </td>
+                        </tr>
+                        @php $i++ @endphp
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.box-body -->
+                <div class="box-footer">
+                  <a class="btn btn-info pull-right" onclick="$('#second_tab').trigger('click')">NEXT</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="brief_tab">
+              <!-- form start -->
+                <div class="box-body">                  
+                    <table class="table table-responsive table-hover">
+                    <tr>
+                      <th width="30%">Content Type</th>
+                      <td>{{ $data->content_type }}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Post Frequency</th>
+                      <td>{{ $data->post_frequency }}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Post Rules</th>
+                      <td>{{ $data->post_rules }}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Post Reference</th>
+                      <td><img src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Caption</th>
+                      <td>{{ $data->caption }}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%">Deadline Draft Feed</th>
+                      <td>{{ date('d M Y', strtotime($data->deadline_date)) }}</td>
+                    </tr>
+                  </table>
+                </div>
+                
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  
+                </div>
+            </div>
+            <!-- /.tab-pane -->
+            
+          </div>
+          <!-- /.tab-content -->
+        </div>
+    </section>
+
+    <!-- /.content -->
+  </div>
+
+@endsection
+@section('scripts')
+@include('layouts.tools.brand.campaign.script')
+@endsection
+
+
+          
