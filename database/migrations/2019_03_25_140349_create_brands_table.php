@@ -18,6 +18,7 @@ class CreateBrandsTable extends Migration
           $table->string('name');
           $table->string('email');
           $table->string('website');
+          $table->string('socmed');
           $table->string('socmed_link');
           $table->string('phone_number')->nullable();
           $table->timestamp('email_verified_at')->nullable();
