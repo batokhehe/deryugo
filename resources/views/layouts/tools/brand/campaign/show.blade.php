@@ -93,7 +93,11 @@
                           <td>{{ $i }}</td>
                           <td>{{ $detail->name }}</td>
                           <td><img width="300px" class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ $detail->image }}" alt="User profile picture"></td>
-                          <td>{{ $detail->category_name }}</td>
+                          <td>
+                            @foreach($categories[$i-1] as $category)
+                            {{ $category->name }} &nbsp ,
+                            @endforeach
+                          </td>
                           <td>{{ $detail->engagement_rate * 100 . "%" }}</td>
                           <td>{{ $detail->type }}</td>
                           <td>{{ $detail->followers }}</td>
@@ -110,11 +114,11 @@
                             @if ($detail->campaign_influencer_status != '0')
                             <a href="{{ route('brand.campaign.draft', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
                             @endif
-                            @if ($data->status == '2')
-                            &nbsp <a href="{{ route('brand.campaign.post', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">POST</a>
-                            @endif
                           </td>
                           <td>
+                            @if ($data->status == '2')
+                            <a href="{{ route('brand.campaign.post', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">POST</a>
+                            @endif
                             @if ($detail->campaign_influencer_status == '3')
                             <a href="#" type="button" class="btn-sm btn-danger">DECLINE</a>
                             @elseif ($detail->campaign_influencer_status == '2')

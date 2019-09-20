@@ -114,7 +114,11 @@
                           <td>{{ $i }}</td>
                           <td>{{ $influencer->name }}</td>
                           <td><img class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ $influencer->image }}" alt="User profile picture"></td>
-                          <td>{{ $influencer->category_name }}</td>
+                          <td>
+                            @foreach($categories[$i-1] as $category)
+                            {{ $category->name }}, &nbsp
+                            @endforeach
+                          </td>
                           <td>{{ $influencer->engagement_rate * 100 . "%" }}
                             <input type="hidden" class="engagement_rate" value="{{ $influencer->engagement_rate }}" />
                           </td>

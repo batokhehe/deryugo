@@ -66,7 +66,7 @@
                 @foreach ($details as $detail)
                 <tr>
                   <td>{{ $i }}</td>
-                  <td>{{ $detail->post_id }}</td>
+                  <td><img width="200px" src="{{ $detail->image }}" /><br>{{ $detail->post_id }}</td>
                   <td>{{ $detail->comment }}</td>
                   <td>{{ $detail->like }}</td>
                   <td>{{ $detail->engagement_rate }}</td>

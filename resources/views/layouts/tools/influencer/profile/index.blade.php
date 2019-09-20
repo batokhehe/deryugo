@@ -83,7 +83,7 @@
               <div class="col-md-6">
                   <h5 class="text-white" style="margin-bottom: 20px;text-align: center;"><b>FEED INSTAGRAM<b></h5>
                   <div class="row">
-                    @foreach($influencer->post_feed->data as $data)
+                    @foreach ($influencer_images as $data)
                         <div class="col-md-4">
                             <img src="{{ $data->image }}" alt="Image" class="img-fluid" style="width: 100%;">
                         </div>

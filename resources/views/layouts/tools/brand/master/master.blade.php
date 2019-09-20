@@ -264,7 +264,7 @@
           <li class="dropdown user user-menu">
             <a href="{{ url('/') }}#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="{{ \App\Brand::where('user_id', Auth::user()->id)->first()->image }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->id)->first()->name }}</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -272,7 +272,7 @@
                 <img src="{{ \App\Brand::where('user_id', Auth::user()->id)->first()->image }}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ Auth::user()->id)->first()->name }}
+                  {{ Auth::user()->name }}
                   <small>Member since Nov. 2019</small>
                 </p>
               </li>
@@ -322,7 +322,7 @@
           <img src="{{ \App\Brand::where('user_id', Auth::user()->id)->first()->image }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="{{ url('/') }}#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

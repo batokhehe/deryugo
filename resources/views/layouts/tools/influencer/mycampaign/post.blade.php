@@ -68,8 +68,8 @@
                 @php $i++ @endphp
                 @endforeach
               </table>
-              @else
-              <a id="add_post" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add More</a>
+              @endif
+              <!-- <a id="add_post" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add More</a> -->
               <table class="table table-responsive" id="post_table">
                 <tr>
                   <td>
@@ -81,15 +81,14 @@
                   <td></td>
                 </tr>
               </table>
-              @endif
             </div>
             
             <!-- /.box-body -->
             <div class="box-footer">
               <a class="btn btn-default" href="{{ route('influencer.campaign.index') }}"><i class="fa fa-back"></i> Back</a>
-              @if(count($details) < 1)
+              
               <button type="submit" class="btn btn-info pull-right" onclick="return confirm('Are You Sure?')">Submit</button>
-              @endif
+              
             </div>
           </div>
       
