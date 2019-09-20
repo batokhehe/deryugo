@@ -44,6 +44,8 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/tools/newcampaign/join/{id}', 'CampaignController@join_influencer')->name('influencer.campaign.join');
 	Route::get('/tools/newcampaign/snubs/{id}', 'CampaignController@snubs_influencer')->name('influencer.campaign.snubs');
 	Route::get('/tools/mycampaign', 'CampaignController@index_influencer')->name('influencer.campaign.index');
+	Route::get('/tools/mycampaign/post/{id}', 'CampaignController@post_influencer')->name('influencer.campaign.post');
+	Route::post('/tools/mycampaign/post/update/{id}', 'CampaignController@update_post_influencer')->name('influencer.campaign.update_post');
 	Route::get('/tools/mycampaign/draft/{id}', 'CampaignController@draft_influencer')->name('influencer.campaign.draft');
 	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');
 	Route::get('/tools/socmed', function () { return view('layouts.tools.influencer.socmed.index'); });
@@ -52,14 +54,18 @@ Route::prefix('influencer')->group(function() {
 //BRAND
 Route::prefix('brand')->group(function() {
 	//REGISTER
-	Route::get('/register', function () { return view('auth.registerbrand'); });
-	Route::post('/register/create', 'Auth\RegisterController@create')->name('register.brand.create');
+	Route::get('/register', 'Auth\RegisterController@indexBrand')->name('register.brand');
+
+	//LOGIN
+	Route::get('/login', function () { return view('auth.loginbrand'); })->name('login.brand');
 
 	//TOOLS
 	Route::get('/tools', function () { return view('layouts.tools.brand.home.index'); });
 	Route::get('/tools/newcampaign', 'CampaignController@create')->name('brand.campaign.create');
 	Route::post('/tools/newcampaign/store', 'CampaignController@store')->name('brand.campaign.store');
 	Route::get('/tools/mycampaign', 'CampaignController@index')->name('brand.campaign.index');
+	Route::get('/tools/mycampaign/start/{id}', 'CampaignController@start')->name('brand.campaign.start');
+	Route::get('/tools/mycampaign/post/{id}', 'CampaignController@post')->name('brand.campaign.post');
 	Route::get('/tools/mycampaign/detail/{id}', 'CampaignController@show')->name('brand.campaign.detail');
 	Route::get('/tools/mycampaign/detail/draft/{id}', 'CampaignController@draft')->name('brand.campaign.draft');
 	Route::post('/tools/mycampaign/detail/draft/process/{id}', 'CampaignController@process_draft')->name('brand.campaign.process_draft');

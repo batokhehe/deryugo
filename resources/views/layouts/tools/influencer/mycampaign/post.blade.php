@@ -14,7 +14,7 @@
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-        <form class="form-horizontal" action="{{ route('influencer.campaign.update' , ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('influencer.campaign.update_post' , ['id' => $data->id]) }}" method="POST">
         {{csrf_field()}}
         <!-- form start -->
           <div class="box box-primary col-md-12">
@@ -50,37 +50,33 @@
               <table class="table table-responsive" id="image_table">
                 <tr>
                   <th>No</th>
-                  <th>Images</th>
+                  <th>Post ID</th>
+                  <th>Comment</th>
+                  <th>Like</th>
+                  <th>Engagement Rate</th>
                   <th>Status</th>
                 </tr>
                 @php $i = 1 @endphp
                 @foreach($details as $detail)
                 <tr>
                   <td>{{ $i }}</td>
-                  <td><img width="300px" src="{{ url('/assets/images/campaign_draft/' . $detail->image) }}" /></td>
-                  <td>
-                    @if ($detail->status == '1')
-                    <a type="button" class="btn-sm btn-success">ACCEPTED</a>
-                    @elseif ($detail->status == '0')
-                    <a type="button" class="btn-sm btn-warning">WAITING</a>
-                    @elseif ($detail->status == '2')
-                    <a type="button" class="btn-sm btn-danger">DECLINE</a>
-                    @endif
-                  </td>
+                  <td>{{ $detail->post_id }}</td>
+                  <td>{{ $detail->comment }}</td>
+                  <td>{{ $detail->like }}</td>
+                  <td>{{ $detail->engagement_rate }}</td>
                 </tr>
                 @php $i++ @endphp
                 @endforeach
               </table>
               @else
-              <a id="add_image" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add More</a>
-              <table class="table table-responsive" id="image_table">
+              <a id="add_post" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add More</a>
+              <table class="table table-responsive" id="post_table">
                 <tr>
                   <td>
                     <div class="form-group">
-                      <label for="nama" class="control-label">Image</label>
-                      <input type="file" class="form-control image" name="image[]" accept="image/*">
-                      <img class="preview" src="#" alt="Image Preview" width="50%" />
-                  </div>
+                      <label for="nama" class="control-label">Post ID</label>
+                      <input type="text" class="form-control" name="post[]">
+                    </div>
                   </td>
                   <td></td>
                 </tr>

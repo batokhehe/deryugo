@@ -6,8 +6,10 @@ use App\Campaign;
 use App\Influencer;
 use App\CampaignInfluencer;
 use App\CampaignDraft;
+use App\CampaignPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class CampaignController extends Controller
 {
@@ -98,9 +100,12 @@ class CampaignController extends Controller
         // $start_date = $temp[0];
         // $end_date = $temp[1];
 
+        $id = Auth::user()->id;
+        $brand_id = Brand::where('user_id', $id)->first()->id;
+
         $data = array(
             'name' => $name, 
-            'brand_id' => '1',
+            'brand_id' => $brand_id,
             'start_date' => date('y-m-d', strtotime($start_date)), 
             'end_date' => date('y-m-d', strtotime($end_date)),
             'plan_engagement' => str_replace('.', '', str_replace(' ', '', str_replace('Rp', '', $engagement_plan))), 
@@ -169,6 +174,13 @@ class CampaignController extends Controller
      * @param  \App\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
+    public function start(Request $request, $id)
+    {
+        $update = array('status' => '2');
+        $campaigns = Campaign::where('id', $id)->update($update);
+        return redirect()->route('brand.campaign.index');
+    }
+
     public function edit(Campaign $campaign)
     {
         //
@@ -180,6 +192,20 @@ class CampaignController extends Controller
         $campaigns = Campaign::where('id', $id)->first();
         $details = CampaignDraft::where('campaign_id', $id)->where('influencer_id', $request->get('influencer'))->get();
         return view('layouts.tools.brand.campaign.draft')
+            ->with('data', $campaigns)
+            ->with('details', $details)
+            ->with('influencer', $request->get('influencer'));
+    }
+
+    public function post(Request $request, $id)
+    {
+        //
+        $campaigns = Campaign::where('id', $id)->first();
+        $details = CampaignPost::where('campaign_id', $id)->where('campaign_posts.influencer_id', $request->get('influencer'))
+                            ->leftJoin('post_related', 'post_related.post_id', 'campaign_posts.post_id')      
+                    ->orderBy('campaign_posts.id')->get();
+    
+        return view('layouts.tools.brand.campaign.post')
             ->with('data', $campaigns)
             ->with('details', $details)
             ->with('influencer', $request->get('influencer'));
@@ -198,11 +224,18 @@ class CampaignController extends Controller
         // print_r($update);
         // echo $id;
         // echo $request->post('influencer');
+        $influencer_id = $request->post('influencer');
 
         if($request->post('post_image') !== null){
             foreach ($request->post('post_image') as $key => $value) {
-                $data = CampaignDraft::where('campaign_id', $id)->where('influencer_id', '2')->where('id', $value)->update($update);
+                $data = CampaignDraft::where('campaign_id', $id)->where('influencer_id', $influencer_id)->where('id', $value)->update($update);
             }
+        }
+
+        $tmpCampaign = CampaignDraft::where('campaign_id', $id)->where('status', '!=', '1')->get()->count();
+        if($tmpCampaign < 1){
+            $status = array('status' => '1');
+            Campaign::where('id', $id)->update($status);
         }
         
         return redirect()->route('brand.campaign.detail', ['id' => $id])->with('success', 'Data Added');
@@ -213,7 +246,9 @@ class CampaignController extends Controller
         //
         $update = array('status' => '2');
 
-        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', '2')->update($update);
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         return redirect()->route('brand.campaign.detail', ['id' => $id])->with('success', 'Data Added');
     }
 
@@ -222,7 +257,9 @@ class CampaignController extends Controller
         //
         $update = array('status' => '3');
 
-        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', '2')->update($update);
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         return redirect()->route('brand.campaign.detail', ['id' => $id])->with('success', 'Data Added');
     }
 
@@ -252,8 +289,10 @@ class CampaignController extends Controller
     public function index_influencer()
     {
         //mycampaign
-        $data = CampaignInfluencer::select('campaign_id')->where('status', '=', '1')->where('influencer_id', '2')->get()->toArray();
-        $campaigns = Campaign::select('*', 'campaigns.name as campaign_name', 'campaigns.id as campaign_id')
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $data = CampaignInfluencer::select('campaign_id')->where('status', '=', '1')->where('influencer_id', $influencer_id)->get()->toArray();
+        $campaigns = Campaign::select('*', 'campaigns.name as campaign_name', 'campaigns.id as campaign_id', 'campaigns.status as campaign_status')
                                 ->join('brands', 'brands.id', 'campaigns.brand_id')
                                 ->whereIn('campaigns.id', $data)->get();
         return view('layouts.tools.influencer.mycampaign.index')
@@ -262,14 +301,16 @@ class CampaignController extends Controller
 
     public function new_campaign_influencer()
     {
-        $data = CampaignInfluencer::select('campaign_id')->where('status', '=', '0')->where('influencer_id', '2')->get()->toArray();
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $data = CampaignInfluencer::select('campaign_id')->where('status', '=', '0')->where('influencer_id', $influencer_id)->get()->toArray();
         // $campaigns = Campaign::select('*', 'campaigns.name as campaign_name', 'campaigns.id as campaign_id')
         //                         ->join('brands', 'brands.id', 'campaigns.brand_id')
         //                         ->whereIn('campaigns.id', $data)->get();
         $campaigns = Campaign::select('*', 'campaigns.name as campaign_name', 'campaigns.id as campaign_id')
                                 ->join('brands', 'brands.id', 'campaigns.brand_id')
                                 ->join('campaign_influencers', 'campaign_influencers.campaign_id', 'campaigns.id')
-                                ->where('influencer_id', '2')->where('campaign_influencers.status', '0')->get();
+                                ->where('influencer_id', $influencer_id)->where('campaign_influencers.status', '0')->get();
         return view('layouts.tools.influencer.newcampaign.index')
             ->with('campaigns', $campaigns);
     }
@@ -284,8 +325,9 @@ class CampaignController extends Controller
     public function join_influencer($id)
     {
         $update = array('status' => '1');
-
-        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', '2')->update($update);
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         return redirect()->route('influencer.campaign.index')->with('success', 'Data Added');
     }
 
@@ -293,14 +335,51 @@ class CampaignController extends Controller
     {
         $update = array('status' => '9');
 
-        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', '2')->update($update);
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         return redirect()->route('influencer.newcampaign.index')->with('success', 'Data Added');
+    }
+
+    public function post_influencer($id)
+    {
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $campaigns = Campaign::where('id', $id)->first();
+        $drafts = CampaignPost::where('campaign_id', $id)->where('influencer_id', $influencer_id)->get();
+        return view('layouts.tools.influencer.mycampaign.post')
+            ->with('data', $campaigns)
+            ->with('details', $drafts);
+    }
+
+    public function update_post_influencer(Request $request, $id)
+    {
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
+        $posts = $request->post('post');
+        foreach ($posts as $key => $value) {
+            $campaign_posts[] = array(
+                'post_id' => $value,
+                'campaign_id' => $id,
+                'influencer_id' => $influencer_id,
+                'comment' => '0',
+                'like' => '0',
+                'engagement_rate' => '0',
+                'status' => '0'
+            );
+        }
+
+        CampaignPost::where('campaign_id', $id)->delete();
+        $result = CampaignPost::insert($campaign_posts);
+        return redirect()->route('influencer.campaign.index')->with('success', 'Data Added');
     }
 
     public function draft_influencer($id)
     {
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
         $campaigns = Campaign::where('id', $id)->first();
-        $drafts = CampaignDraft::where('campaign_id', $id)->where('influencer_id', '2')->get();
+        $drafts = CampaignDraft::where('campaign_id', $id)->where('influencer_id', $influencer_id)->get();
         return view('layouts.tools.influencer.mycampaign.edit')
             ->with('data', $campaigns)
             ->with('details', $drafts);
@@ -308,6 +387,8 @@ class CampaignController extends Controller
 
     public function update_draft_influencer(Request $request, $id)
     {
+        $id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $id)->first()->id;
         $images = $request->file('image');
         foreach ($images as $key => $value) {
             $image_name = md5($value->getClientOriginalName() . time()) . '.' . $value->getClientOriginalExtension();
@@ -315,7 +396,7 @@ class CampaignController extends Controller
             $campaign_drafts[] = array(
                 'image' => $image_name,
                 'campaign_id' => $id,
-                'influencer_id' => '2',
+                'influencer_id' => $influencer_id,
                 'status' => '0'
             );
         }

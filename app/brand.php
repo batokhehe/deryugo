@@ -17,6 +17,7 @@ class Brand extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'website', 'socmed', 'phone_number', 'password', 'email_verified_at', 'user_id', 'image',
+        'socmed_link', 'status',
     ];
 
     /**

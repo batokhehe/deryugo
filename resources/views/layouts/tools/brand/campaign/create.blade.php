@@ -113,7 +113,7 @@
                         <tr>
                           <td>{{ $i }}</td>
                           <td>{{ $influencer->name }}</td>
-                          <td><img class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ url('assets/images/influencer/' . $influencer->image ) }}" alt="User profile picture"></td>
+                          <td><img class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ $influencer->image }}" alt="User profile picture"></td>
                           <td>{{ $influencer->category_name }}</td>
                           <td>{{ $influencer->engagement_rate * 100 . "%" }}
                             <input type="hidden" class="engagement_rate" value="{{ $influencer->engagement_rate }}" />

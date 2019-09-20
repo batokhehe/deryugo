@@ -53,9 +53,12 @@
               <table id="datatables" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>NO</th>
-                  <th>IMAGE</th>
-                  <th>ACTION</th>
+                  <th>No</th>
+                  <th>Post ID</th>
+                  <th>Comment</th>
+                  <th>Like</th>
+                  <th>Engagement Rate</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,14 +66,10 @@
                 @foreach ($details as $detail)
                 <tr>
                   <td>{{ $i }}</td>
-                  <td><img class="preview" src="{{ url('/assets/images/campaign_draft/' . $detail->image) }}" alt="Image Preview" width="50%" /></td>
-                  @if ($detail->status == '1')
-                  <td><a type="button" class="btn-sm btn-success">ACCEPTED</a></td>
-                  @elseif ($detail->status == '0')
-                  <td><input type="checkbox" name="post_image[]" value="{{ $detail->id }}"></td>
-                  @elseif ($detail->status == '2')
-                  <td><a type="button" class="btn-sm btn-danger">DECLINE</a></td>
-                  @endif
+                  <td>{{ $detail->post_id }}</td>
+                  <td>{{ $detail->comment }}</td>
+                  <td>{{ $detail->like }}</td>
+                  <td>{{ $detail->engagement_rate }}</td>
                 </tr>
                 @php $i++ @endphp
                 @endforeach
@@ -79,8 +78,6 @@
             
               <!-- /.box-body -->
               <div class="box-footer pull-right">
-                <input type="submit" class="btn btn-danger" name="decline_draft" value="DECLINE" onclick="return confirm('Are You Sure?')" />
-                <input type="submit" class="btn btn-success" name="accept_draft" value="ACCEPT" onclick="return confirm('Are You Sure?')" />
               </div>
             </form>
           </div>

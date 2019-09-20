@@ -1,4 +1,4 @@
-@extends('layouts.tools.influencer.master.master')
+@extends('layouts.tools.brand.master.master')
 @section('content')
 
 <div class="content-wrapper">
@@ -36,7 +36,7 @@
                 {{ $data->post_reference }}
               </div>
               <div class="form-group">
-                <img src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" />
+                <img width="300px" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" />
               </div>
               <div class="form-group">
                 <label>Caption</label>
@@ -84,7 +84,7 @@
 
 @endsection
 @section('scripts')
-@include('layouts.tools.influencer.mycampaign.script')
+@include('layouts.tools.brand.mycampaign.script')
 @endsection
 
 

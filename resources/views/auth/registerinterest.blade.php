@@ -65,7 +65,7 @@
 			</div>
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-50 p-b-50 container">
 				<form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
-					{{ csrf_field() }}
+				{{ csrf_field() }}
 					<span class="login100-form-title p-b-59">
 						Sign Up
 					</span>

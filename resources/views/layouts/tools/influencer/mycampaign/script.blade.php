@@ -79,6 +79,17 @@
       $('#image_table').append(html);
     });
 
+    $(document).on('click', '#add_post', function (e) {
+      html = '<tr><td><div class="form-group">' +
+              '<label for="nama" class="control-label">Post</label>' +
+              '<input type="text" class="form-control" name="post[]">'+
+              '</div></td>' +
+              '<td><a class="btn btn-danger delete-row"><i class="fa fa-trash"></i></td>' +
+              '</tr>';
+
+      $('#post_table').append(html);
+    });
+
     $(document).on('click', '.delete-row', function (e) {
       var target = $(this).parent().parent().closest('tr');
 

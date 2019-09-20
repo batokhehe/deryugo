@@ -92,7 +92,7 @@
                         <tr>
                           <td>{{ $i }}</td>
                           <td>{{ $detail->name }}</td>
-                          <td><img class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ url('assets/images/influencer/' . $detail->image ) }}" alt="User profile picture"></td>
+                          <td><img width="300px" class="profile-user-img img-responsive img-circle" style="width:50px;" src="{{ $detail->image }}" alt="User profile picture"></td>
                           <td>{{ $detail->category_name }}</td>
                           <td>{{ $detail->engagement_rate * 100 . "%" }}</td>
                           <td>{{ $detail->type }}</td>
@@ -109,6 +109,9 @@
                           <td>
                             @if ($detail->campaign_influencer_status != '0')
                             <a href="{{ route('brand.campaign.draft', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
+                            @endif
+                            @if ($data->status == '2')
+                            &nbsp <a href="{{ route('brand.campaign.post', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">POST</a>
                             @endif
                           </td>
                           <td>
@@ -149,7 +152,7 @@
                     </tr>
                     <tr>
                       <th width="30%">Post Reference</th>
-                      <td><img src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
+                      <td><img width="300px" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
                     </tr>
                     <tr>
                       <th width="30%">Caption</th>
@@ -164,7 +167,11 @@
                 
                 <!-- /.box-body -->
                 <div class="box-footer">
-                  
+                <?php
+                if($data->status == '1'){ ?>
+                  <a class="btn btn-success pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">START CAMPAIGN</a>
+                <?php } ?>
+                
                 </div>
             </div>
             <!-- /.tab-pane -->

@@ -32,6 +32,7 @@
                   <th>CONTENT TYPE</th>
                   <th>POST REFERENCE</th>
                   <th>PERIOD</th>
+                  <th>STATUS</th>
                   <th>ACTION</th>
                 </tr>
                 </thead>
@@ -40,11 +41,16 @@
                 @foreach ($campaigns as $campaign)
                 <tr>
                   <td>{{ $i }}</td>
-                  <td><img class="profile-user-img img-responsive img-circle" src="{{ url('assets/images/brand/1.png') }}" alt="Brand profile picture"></td>
+                  <td><img class="profile-user-img img-responsive img-circle" src="{{ \App\Brand::where('user_id', Auth::user()->id)->first()->image }}" alt="Brand profile picture"></td>
                   <td>{{ $campaign->name }}</td>
                   <td>{{ $campaign->content_type }}</td>
                   <td><img width="150px" class="img-responsive" src="{{ url('assets/images/post_reference/' . $campaign->post_image) }}" alt="Post Reference"></td>
                   <td>{{ date('d M Y', strtotime($campaign->start_date)) . ' - ' . date('d M Y', strtotime($campaign->end_date)) }}</td>
+                  <td>
+                  <?php
+                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running');
+                    echo $status[$campaign->status];
+                  ?></td>
                   <td><a href="{{ route('brand.campaign.detail', ['id' => $campaign->id]) }}" type="button" class="btn-sm btn-success">Detail</a></td>
                 </tr>
                 @php $i++ @endphp

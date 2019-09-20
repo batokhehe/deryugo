@@ -267,7 +267,7 @@ iframe {
 /*------------------------------------------------------------------
 [ Login100 more ]*/
 .login100-more {
-    background-image: url('/progress/public/assets/images/reg.jpg');
+    background-image: url('/assets/images/reg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -294,7 +294,7 @@ iframe {
 }
 
 .login100-more1 {
-    background-image: url('/progress/public/assets/images/reg1.jpg');
+    background-image: url('/assets/images/reg1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -321,7 +321,7 @@ iframe {
 }
 
 .login100-more2 {
-    background-image: url('/progress/public/assets/images/reg2.jpg');
+    background-image: url('/assets/images/reg2.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

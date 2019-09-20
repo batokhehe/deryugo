@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Brand;
+use App\BrandInterest;
 use App\Influencer;
 use App\InfluencerCategory;
 use App\Category;
@@ -91,7 +92,13 @@ class RegisterController extends Controller
               'gender' => $data['gender'],
               'birthdate' => date('Y-m-d', strtotime($data['birthdate'])),
               'image' => 'http://www.deryugo.com/progress/public/assets/images/influencer/default.png',
-              'user_id' => $user->id
+              'user_id' => $user->id,
+              'engagement_rate' => '0',
+              'type' => 'Nano',
+              'followers' => '0',
+              'instagram_username' => '',
+              'password' => '',
+              'status' => '0'
             ]);
             
             foreach($data['interest'] as $int){
@@ -101,11 +108,25 @@ class RegisterController extends Controller
                 ]);
             }
         } else {
-            Brand::create([
+            $brand = Brand::create([
               'name' => $data['name'],
               'email' => $data['email'],
-              'user_id' => $user->id
+              'user_id' => $user->id,
+              'website' => $data['website'],
+              'socmed' => $data['social_media'],
+              'socmed_link' => '',
+              'phone_number' => $data['phone'],
+              'password' => '',
+              'image' => 'http://www.deryugo.com/progress/public/assets/images/influencer/default.png',
+              'status' => '0',
             ]);
+
+            foreach($data['service'] as $int){
+                BrandInterest::create([
+                  'brand_id' => $brand->id,
+                  'category_id' => $int
+                ]);
+            }
         }
       
         return $user;
@@ -124,5 +145,9 @@ class RegisterController extends Controller
         }
         
         return abort('404');
+    }
+
+    public function indexBrand(){
+        return view('auth.registerbrand');
     }
 }

@@ -44,7 +44,11 @@
                   <td>{{ $campaign->content_type }}</td>
                   <td><img width="150px" class="img-responsive" src="{{ url('assets/images/post_reference/' . $campaign->post_image) }}" alt="Post Reference"></td>
                   <td>{{ date('d M Y', strtotime($campaign->start_date)) . ' - ' . date('d M Y', strtotime($campaign->end_date)) }}</td>
-                  <td><a href="{{ route('influencer.campaign.draft', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">DRAFT</a></td>
+                  <td><a href="{{ route('influencer.campaign.draft', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
+                  @if ($campaign->campaign_status)
+                  <a href="{{ route('influencer.campaign.post', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">POST</a>
+                  @endif
+                  </td>
                 </tr>
                 @php $i++ @endphp
                 @endforeach

@@ -16,7 +16,8 @@ class Influencer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone_number', 'password', 'user_id', 'image', 'gender', 'birthdate',
+        'name', 'email', 'phone_number', 'password', 'user_id', 'image', 'gender', 'birthdate', 'engagement_rate', 
+        'type', 'followers', 'instagram_username', 'password', 'status'
     ];
 
     /**

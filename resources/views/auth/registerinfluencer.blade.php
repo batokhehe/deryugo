@@ -61,7 +61,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="login100-more">
-			<a class="" href="/progress/public"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="" style="width:35%; padding-left:20px;padding-top:20px;"></a>
+			<a class="" href="/"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="" style="width:35%; padding-left:20px;padding-top:20px;"></a>
 			</div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-50 p-b-50 container">
@@ -151,8 +151,8 @@
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<a href="#" class="login100-form-btn" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
-                                <span>Sign Up</span>
-                            </a>
+                  <span>Sign Up</span>
+              </a>
 							<!--<button class="login100-form-btn" type="submit" value="Register">-->
 							<!--	Sign Up-->
 							<!--</button>-->
@@ -163,58 +163,58 @@
 							<i class="fa fa-long-arrow-right m-l-5"></i>
 						</a>
 						<div class="modal fade portfolioModal" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg" style="max-width: 90%;">
-                            <div class="modal-content" style="background-color: rgba(252, 252, 252, 0.8);">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <h5 class="text-white" style="margin-bottom: 5px;">Before you step in to the next page, <br/>please choose your interest</h5>
-                                <div class="row mb-5">
-                                    @php $i = 1; $j = 1; @endphp
-                                    @foreach($interests as $interest)
-                                    @if($i == 1)
-                                    <div class="col-md-6 mt-5" data-aos="fade" data-aos-delay="200">
-                                    <div class="row">
-                                    @endif
-                                    @if($i == 1 || $i == 4 || $i == 7)
-                                    <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="600" style="padding-right: 0px;padding-left: 5px;">
-                                    @endif
-                                    <div class="hovereffect nopad text-center">
-                                        <label class="image-checkbox">
-                                        <img src="{{ url('/assets/images/' . $interest->image) }}" alt="Image" class="img-fluid img-responsive">
-                                        <input type="checkbox" name="interest[]" value="{{ $interest->id }}" />
-                                        <i class="fa fa-check hidden"></i>
-                                        <div class="overlay">
-                                            <h2>{{ $interest->name }}</h2>
-                                        </div>
-                                        </label>
-                                    </div>
-                                    @if($j == 18)
-                                    <button type="submit" class="btn-custom pull-right" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px;float: right;">
-                                    <span>
-                                        JOIN NOW
-                                    </span>
-                                    </button>
-                                    @endif
-                                    @if($i == 3 || $i == 6 || $i == 9)
-                                    </div>
-                                    @endif
-                                    @if($i % 9 == 0)
-                                    </div>
-                                    </div>
-                                    @php $i = 0 @endphp
-                                    @endif
-                                    @php $i++; $j++; @endphp
-                                    @endforeach
-                                </div>
-                                </div>
-                              </div><!-- /.modal-body -->
-                            </div><!-- /.modal-content -->
-                          </div><!-- /.modal-dialog -->
-                        </div><!-- /.portfolioModal -->
+              <div class="modal-dialog modal-lg" style="max-width: 90%;">
+                <div class="modal-content" style="background-color: rgba(252, 252, 252, 0.8);">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h5 class="text-white" style="margin-bottom: 5px;">Before you step in to the next page, <br/>please choose your interest</h5>
+                    <div class="row mb-5">
+                        @php $i = 1; $j = 1; @endphp
+                        @foreach($interests as $interest)
+                        @if($i == 1)
+                        <div class="col-md-6 mt-5" data-aos="fade" data-aos-delay="200">
+                        <div class="row">
+                        @endif
+                        @if($i == 1 || $i == 4 || $i == 7)
+                        <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="600" style="padding-right: 0px;padding-left: 5px;">
+                        @endif
+                        <div class="hovereffect nopad text-center">
+                            <label class="image-checkbox">
+                            <img src="{{ url('/assets/images/' . $interest->image) }}" alt="Image" class="img-fluid img-responsive">
+                            <input type="checkbox" name="interest[]" value="{{ $interest->id }}" />
+                            <i class="fa fa-check hidden"></i>
+                            <div class="overlay">
+                                <h2>{{ $interest->name }}</h2>
+                            </div>
+                            </label>
+                        </div>
+                        @if($j == 18)
+                        <button type="submit" class="btn-custom pull-right" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px;float: right;">
+                        <span>
+                            JOIN NOW
+                        </span>
+                        </button>
+                        @endif
+                        @if($i == 3 || $i == 6 || $i == 9)
+                        </div>
+                        @endif
+                        @if($i % 9 == 0)
+                        </div>
+                        </div>
+                        @php $i = 0 @endphp
+                        @endif
+                        @php $i++; $j++; @endphp
+                        @endforeach
+                    </div>
+                    </div>
+                  </div><!-- /.modal-body -->
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.portfolioModal -->
 					</div>
 					<!-- <div class="w-full text-center" style="padding-top: 40px;">
 						<span class="txt2">
