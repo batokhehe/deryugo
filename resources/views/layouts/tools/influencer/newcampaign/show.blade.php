@@ -32,7 +32,7 @@
                     </tr>
                     <tr>
                       <th width="30%">Post Reference</th>
-                      <td><img src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
+                      <td><img width="300px" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
                     </tr>
                     <tr>
                       <th width="30%">Caption</th>
@@ -48,6 +48,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                   <a class="btn btn-default" href="{{ route('influencer.newcampaign.index') }}"><i class="fa fa-back"></i> Back</a>
+                  <a class="btn-sm btn-success" href="{{ route('influencer.newcampaign.index') }}"><i class="fa fa-back"></i> JOIN</a>
                 </div>
               </div>
               
