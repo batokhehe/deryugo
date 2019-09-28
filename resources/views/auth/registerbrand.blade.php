@@ -17,6 +17,7 @@
 	<!-- <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css"> -->
 	<link rel="stylesheet" type="text/css" href="{{ url('/assets/css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url('/assets/css/main.css') }}">
+	<link rel="stylesheet" href="{{ url('/assets/css/style.css') }}">
 
 </head>
 <body>
@@ -117,7 +118,7 @@
 
 					<div class="w-full p-b-33">
 						<div class="validate-input" data-validate="Service is required" style="height: 30px;">
-						<span class="label-input100">Type of Service</span>
+						<span class="label-input100">What Do You Need ?</span>
 						</div>
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" value="0" name="service[]">

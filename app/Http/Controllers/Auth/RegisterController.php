@@ -39,7 +39,7 @@ class RegisterController extends Controller
         if (auth()->user()->type == 0) {
             return '/influencer/profile/edit';
         }
-        return '/brand/login';
+        return '/brand/tools';
     }
 
     /**

@@ -72,9 +72,15 @@
                   </div>
                   
                 </div>
+
                 <!-- /.box-body -->
+
                 <div class="box-body">
-                    <table id="datatables" class="table table-bordered table-striped">
+                  <?php
+                    if($data->status == '1'){ ?>
+                      <a class="btn btn-success pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">START CAMPAIGN</a>
+                  <?php } ?>
+                    <table id="datatablesDetail" class="table table-bordered table-striped">
                       <thead>
                       <tr>
                         <th>NO</th>
@@ -143,33 +149,37 @@
             <!-- /.tab-pane -->
             <div class="tab-pane" id="brief_tab">
               <!-- form start -->
-                <div class="box-body">                  
-                    <table class="table table-responsive table-hover">
-                    <tr>
-                      <th width="30%">Content Type</th>
-                      <td>{{ $data->content_type }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Post Frequency</th>
-                      <td>{{ $data->post_frequency }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Post Rules</th>
-                      <td>{{ $data->post_rules }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Post Reference</th>
-                      <td><img width="300px" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Caption</th>
-                      <td>{{ $data->caption }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Deadline Draft Feed</th>
-                      <td>{{ date('d M Y', strtotime($data->deadline_date)) }}</td>
-                    </tr>
-                  </table>
+                <div class="box-body">
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Content Type</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->content_type }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Post Rules</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->post_rules }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Post Reference</label>
+                    <div class="col-sm-4">
+                      <img  width="80%" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Caption</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->caption }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Deadline Draft Feed</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ date('d M Y', strtotime($data->deadline_date)) }}">
+                    </div>
+                  </div>
                 </div>
                 
                 <!-- /.box-body -->

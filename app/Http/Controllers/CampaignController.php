@@ -73,7 +73,6 @@ class CampaignController extends Controller
             'cost_plan' => 'required',
             'influencer' => 'required',
             'content_type' => 'required',
-            'post_frequency' => 'required',
             'post_rules' => 'required',
             'post_reference' => 'required',
             'post_reference_image' => 'required|max:1024',
@@ -97,7 +96,7 @@ class CampaignController extends Controller
         $influencer = $request->post('influencer');
 
         $content_type = $request->post('content_type');
-        $post_frequency = $request->post('post_frequency');
+        $post_frequency = '0';
         $post_rules = $request->post('post_rules');
         $post_reference = $request->post('post_reference');
         $post_reference_image = $request->file('post_reference_image');

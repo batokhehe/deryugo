@@ -156,18 +156,18 @@
                         @endif
                     </div>
                   </div>
-                  <div class="col-md-1">
-                  </div>
-                  <div class="col-md-5">
-                    <div class="form-group @if ($errors->has('post_frequency')) has-error @endif">
-                      <label>Post Frequency</label>
-                      <input type="text" class="form-control" name="post_frequency" placeholder="3 times a week">
-                        @if ($errors->has('post_frequency')) 
-                        <span class="help-block">{{ $errors->first('post_frequency') }}</span>
-                        @endif
+                <div class="col-md-1">
                     </div>
-                  </div>
-                    
+                    <div class="col-md-5">
+                      <div class="form-group @if ($errors->has('post_reference_image')) has-error @endif">
+                        <label>Post Reference</label>
+                        <input type="file" name="post_reference_image" id="post-image">
+                        <img id="preview" src="#" alt="(Max 1Mb)" width="70%" />
+                        @if ($errors->has('post_reference_image')) 
+                        <span class="help-block">{{ $errors->first('post_reference_image') }}</span>
+                        @endif
+                      </div>
+                    </div>
                 </div>
                   <div class="col-md-12">
                     <div class="col-md-6">
@@ -182,14 +182,6 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-5">
-                      <div class="form-group @if ($errors->has('post_reference_image')) has-error @endif">
-                        <label>Post Reference</label>
-                        <input type="file" name="post_reference_image" id="post-image">
-                        <img id="preview" src="#" alt="(Max 1Mb)" width="70%" />
-                        @if ($errors->has('post_reference_image')) 
-                        <span class="help-block">{{ $errors->first('post_reference_image') }}</span>
-                        @endif
-                      </div>
                       <div class="form-group @if ($errors->has('post_reference')) has-error @endif">
                         <label for="post_reference_image">and other info</label>
                         <input type="text" class="form-control" name="post_reference" placeholder="Product URL">
@@ -198,22 +190,21 @@
                         @endif
                       </div>
                       <div class="form-group @if ($errors->has('deadline_draft')) has-error @endif">
-                          <label for="deadline_draft">Deadline Draft Feed</label>
-                          <div class="input-group">
-                            <div class="input-group-addon">
-                              <i class="fa fa-clock-o"></i>
+                            <label for="deadline_draft">Deadline Draft Feed</label>
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                <i class="fa fa-clock-o"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="datepickerdeadline" name="deadline_draft" placeholder="Deadline Draft">
+                              
                             </div>
-                            <input type="text" class="form-control pull-right" id="datepickerdeadline" name="deadline_draft" placeholder="Deadline Draft">
-                            
-                          </div>
-                          @if ($errors->has('deadline_draft')) 
-                        <span class="help-block">{{ $errors->first('deadline_draft') }}</span>
-                        @endif
+                            @if ($errors->has('deadline_draft')) 
+                          <span class="help-block">{{ $errors->first('deadline_draft') }}</span>
+                          @endif
+                        </div>
                       </div>
                     </div>
                   </div>
-                    
-                    
                   <div class="col-md-12">
                     <div class="col-md-6">
                       <div class="form-group @if ($errors->has('post_reference')) has-error @endif">
@@ -224,15 +215,6 @@
                         @endif
                       </div>
                     </div>
-                    <div class="col-md-1">
-                    </div>
-                    <div class="col-md-5">
-                    
-                    </div>
-                  </div>
-                    
-                    
-                    
                 </div>
                 
                 <!-- /.box-body -->

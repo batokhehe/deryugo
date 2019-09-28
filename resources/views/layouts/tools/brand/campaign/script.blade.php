@@ -6,6 +6,11 @@
         paging:false,
         scrollY:500
     });
+     $('#datatablesDetail').DataTable({
+        paging:false,
+        scrollY:500,
+        searching:false
+    });
     $('#datepickerdeadline').datepicker({
       format: 'dd M yyyy',
       todayBtn:  1,
