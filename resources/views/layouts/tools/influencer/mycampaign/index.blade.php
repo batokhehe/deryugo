@@ -31,6 +31,7 @@
                   <th>CONTENT TYPE</th>
                   <th>POST REFERENCE</th>
                   <th>PERIOD</th>
+                  <th>STATUS</th>
                   <th>ACTION</th>
                 </tr>
                 </thead>
@@ -44,10 +45,19 @@
                   <td>{{ $campaign->content_type }}</td>
                   <td><img width="150px" class="img-responsive" src="{{ url('assets/images/post_reference/' . $campaign->post_image) }}" alt="Post Reference"></td>
                   <td>{{ date('d M Y', strtotime($campaign->start_date)) . ' - ' . date('d M Y', strtotime($campaign->end_date)) }}</td>
-                  <td><a href="{{ route('influencer.campaign.draft', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
-                  @if ($campaign->campaign_status)
-                  <a href="{{ route('influencer.campaign.post', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">POST</a>
-                  @endif
+                  <td>
+                  <?php
+                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running');
+                    echo $status[$campaign->campaign_status];
+                  ?></td>
+                  <td>
+                    @if ($campaign->campaign_status == '0')
+                    <a href="{{ route('influencer.campaign.draft', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
+                    @endif
+                    @if ($campaign->campaign_status == '2')
+                    <a href="{{ route('influencer.campaign.post', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">POST</a>
+                    @endif
+
                   </td>
                 </tr>
                 @php $i++ @endphp

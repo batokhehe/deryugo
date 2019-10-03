@@ -28,51 +28,6 @@
             </div>
         </div>
       </div>
-      <!-- <div class="col-md-3 col-xs-6">
-        <div class="info-box">
-            <span class="info-box-icon"><img class="img" src="{{ url('/assets/dist/img/fb.png') }}" alt="Social Media"></span>
-            <div class="info-box-content" style="background-color: #5375BD;">
-              <span class="info-box-text">Followers</span>
-              <span class="info-box-number" style="color: white;">143 K</span>
-              <div class="progress">
-                <div class="progress-bar" style="width: 10%"></div>
-              </div>
-                  <span class="progress-description">
-                    10% Increase in 30 Days
-                  </span>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="info-box">
-            <span class="info-box-icon"><img class="img" src="{{ url('/assets/dist/img/tw.png') }}" alt="Social Media"></span>
-            <div class="info-box-content" style="background-color: #1DA1F2;">
-              <span class="info-box-text">Followers</span>
-              <span class="info-box-number" style="color: white;">198 K</span>
-              <div class="progress">
-                <div class="progress-bar" style="width: 20%"></div>
-              </div>
-                  <span class="progress-description">
-                    20% Increase in 30 Days
-                  </span>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <div class="info-box">
-            <span class="info-box-icon"><img class="img" src="{{ url('/assets/dist/img/yt.png') }}" alt="Social Media"></i></span>
-            <div class="info-box-content" style="background-color: #DE2925;">
-              <span class="info-box-text">Subscribers</span>
-              <span class="info-box-number" style="color: white;">415 K</span>
-              <div class="progress">
-                <div class="progress-bar" style="width: 30%"></div>
-              </div>
-                  <span class="progress-description">
-                    30% Increase in 30 Days
-                  </span>
-            </div>
-        </div>
-      </div> -->
     </div>
     <!-- /.row -->
 

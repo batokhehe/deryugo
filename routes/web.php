@@ -37,6 +37,7 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/profile/edit', 'ProfileController@edit')->name('profile.influencer.edit');
 	Route::post('/profile/update', 'ProfileController@update')->name('profile.influencer.update');
 	Route::get('/tools/socmed', 'ProfileController@socmed');
+	Route::get('/tools/report', function () { return view('layouts.tools.influencer.report.index'); });
 
 	//TOOLS
 	Route::get('/tools', function () { return view('layouts.tools.influencer.home.index'); })->name('influencer.tools');
@@ -48,7 +49,7 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/tools/mycampaign/post/{id}', 'CampaignController@post_influencer')->name('influencer.campaign.post');
 	Route::post('/tools/mycampaign/post/update/{id}', 'CampaignController@update_post_influencer')->name('influencer.campaign.update_post');
 	Route::get('/tools/mycampaign/draft/{id}', 'CampaignController@draft_influencer')->name('influencer.campaign.draft');
-	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');
+	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');	
 });
 
 //BRAND
@@ -72,6 +73,7 @@ Route::prefix('brand')->group(function() {
 // 	Route::get('/tools/mycampaign/detail/draft/accept/{id}', 'CampaignController@accept_draft')->name('brand.campaign.accept_draft');
 // 	Route::get('/tools/mycampaign/detail/draft/decline/{id}', 'CampaignController@decline_draft')->name('brand.campaign.decline_draft');
 	Route::get('/tools/socmed', function () { return view('layouts.tools.brand.socmed.index'); });
+	Route::get('/tools/report', function () { return view('layouts.tools.brand.report.index'); });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -24,16 +24,17 @@
             <div class="tab-pane active" id="form_tab">
             <!-- form start -->
                 <div class="box-body">
-                  <div class="form-group col-md-12">
-                    <label class="col-md-2 control-label">Campaign Name</label>
-                    <div class="col-md-10">
-                      {{ $data->name }}
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Campaign Name</label>
+                    <div class="col-sm-6">
+                      <!-- {{ $data->name }} -->
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->name }}">
                     </div>
                   </div>
-                  <div class="form-group col-md-12">
-                    <label class="col-md-2 control-label">Campaign Period</label>
-                    <div class="col-md-10">
-                      {{ date('d M Y', strtotime($data->start_date)) . ' - ' . date('d M Y', strtotime($data->end_date)) }}
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Campaign Period</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ date('d M Y', strtotime($data->start_date)) . ' - ' . date('d M Y', strtotime($data->end_date)) }}">
                     </div>
                   </div>
 
@@ -42,19 +43,21 @@
                       <div class="input-group-btn">
                         <label type="text" class="btn btn-danger">Engagement Plan</label>
                       </div>
-                      {{ $data->plan_engagement }}
+                      <!-- {{ $data->plan_engagement }} -->
+                      <!-- <input type="text" name="" class="form-control" disabled value=""> -->
+                      <input type="text" class="form-control" name="engagement_plan" id="engagement_plan" disabled value="{{ $data->plan_engagement }}">
                     </div>
                     <div class="input-group form-group">
                       <div class="input-group-btn">
                         <label type="text" class="btn btn-success">Budget Plan</label>
                       </div>
-                      {{ $data->plan_budget }}
+                      <input type="text" class="form-control" name="budget_plan" id="budget_plan" disabled value="{{ $data->plan_budget }}">
                     </div>
                     <div class="input-group form-group">
                       <div class="input-group-btn">
                         <label type="text" class="btn btn-warning">Cost/Engagement</label>
                       </div>
-                      {{ $data->plan_cost }}
+                      <input type="text" class="form-control" name="cost_plan" id="cost_plan" disabled="" value="{{ $data->plan_cost }}">
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -69,9 +72,15 @@
                   </div>
                   
                 </div>
+
                 <!-- /.box-body -->
+
                 <div class="box-body">
-                    <table id="datatables" class="table table-bordered table-striped">
+                  <?php
+                    if($data->status == '1'){ ?>
+                      <a class="btn btn-success pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">START CAMPAIGN</a>
+                  <?php } ?>
+                    <table id="datatablesDetail" class="table table-bordered table-striped">
                       <thead>
                       <tr>
                         <th>NO</th>
@@ -140,33 +149,37 @@
             <!-- /.tab-pane -->
             <div class="tab-pane" id="brief_tab">
               <!-- form start -->
-                <div class="box-body">                  
-                    <table class="table table-responsive table-hover">
-                    <tr>
-                      <th width="30%">Content Type</th>
-                      <td>{{ $data->content_type }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Post Frequency</th>
-                      <td>{{ $data->post_frequency }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Post Rules</th>
-                      <td>{{ $data->post_rules }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Post Reference</th>
-                      <td><img width="300px" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}" /><br>{{ $data->post_reference }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Caption</th>
-                      <td>{{ $data->caption }}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Deadline Draft Feed</th>
-                      <td>{{ date('d M Y', strtotime($data->deadline_date)) }}</td>
-                    </tr>
-                  </table>
+                <div class="box-body">
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Content Type</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->content_type }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Post Rules</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->post_rules }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Post Reference</label>
+                    <div class="col-sm-4">
+                      <img  width="80%" src="{{ url('/assets/images/post_reference/' . $data->post_image) }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Caption</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->caption }}">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label class="col-sm-2 control-label">Deadline Draft Feed</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ date('d M Y', strtotime($data->deadline_date)) }}">
+                    </div>
+                  </div>
                 </div>
                 
                 <!-- /.box-body -->
