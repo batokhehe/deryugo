@@ -49,6 +49,7 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/tools/mycampaign/draft/{id}', 'CampaignController@draft_influencer')->name('influencer.campaign.draft');
 	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');
 	Route::get('/tools/socmed', function () { return view('layouts.tools.influencer.socmed.index'); });
+	Route::get('/tools/report', function () { return view('layouts.tools.influencer.report.index'); });
 });
 
 //BRAND
@@ -72,6 +73,7 @@ Route::prefix('brand')->group(function() {
 // 	Route::get('/tools/mycampaign/detail/draft/accept/{id}', 'CampaignController@accept_draft')->name('brand.campaign.accept_draft');
 // 	Route::get('/tools/mycampaign/detail/draft/decline/{id}', 'CampaignController@decline_draft')->name('brand.campaign.decline_draft');
 	Route::get('/tools/socmed', function () { return view('layouts.tools.brand.socmed.index'); });
+	Route::get('/tools/report', function () { return view('layouts.tools.brand.report.index'); });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

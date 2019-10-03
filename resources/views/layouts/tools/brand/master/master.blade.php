@@ -353,6 +353,7 @@
           </ul>
         </li>
         <li><a href="{{ url('/brand/tools/socmed') }}"><i class="fa fa-dashboard"></i> <span>Social Media</span></a></li>
+        <li><a href="{{ url('/brand/tools/report') }}"><i class="fa fa-book"></i> <span>Report</span></a></li>
         <!--<li><a href="{{ url('/brand/tools/messages') }}"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>-->
         <!--<li><a href="{{ url('/brand/tools/payment') }}"><i class="fa fa-dollar"></i> <span>Payment</span></a></li>-->
         <!--<li><a href="{{ url('/brand/tools/calendar') }}"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>-->
