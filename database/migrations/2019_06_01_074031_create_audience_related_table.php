@@ -13,7 +13,7 @@ class CreateAudienceRelatedTable extends Migration
      */
     public function up()
     {
-        Schema::create('audience_related', function (Blueprint $table) {
+        Schema::create('audience_relateds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('influencer_id');
             $table->string('followers');
@@ -31,6 +31,6 @@ class CreateAudienceRelatedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audience_related');
+        Schema::dropIfExists('audience_relateds');
     }
 }

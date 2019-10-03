@@ -36,6 +36,7 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/profile', 'ProfileController@index')->name('profile.influencer');
 	Route::get('/profile/edit', 'ProfileController@edit')->name('profile.influencer.edit');
 	Route::post('/profile/update', 'ProfileController@update')->name('profile.influencer.update');
+	Route::get('/tools/socmed', 'ProfileController@socmed');
 
 	//TOOLS
 	Route::get('/tools', function () { return view('layouts.tools.influencer.home.index'); })->name('influencer.tools');
@@ -48,7 +49,6 @@ Route::prefix('influencer')->group(function() {
 	Route::post('/tools/mycampaign/post/update/{id}', 'CampaignController@update_post_influencer')->name('influencer.campaign.update_post');
 	Route::get('/tools/mycampaign/draft/{id}', 'CampaignController@draft_influencer')->name('influencer.campaign.draft');
 	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');
-	Route::get('/tools/socmed', function () { return view('layouts.tools.influencer.socmed.index'); });
 });
 
 //BRAND

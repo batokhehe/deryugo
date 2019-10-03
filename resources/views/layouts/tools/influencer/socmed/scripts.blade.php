@@ -43,12 +43,16 @@
       }
   });
 
+  <?php var_dump($audience_related); ?>
+
   //BAR CHART GROWTH TOTAL FANS
   var ctxBarChartGrowthTotalFans = $("#barChartGrowthTotalFans").get(0).getContext('2d');
   var barChartGrowthTotalFans = new Chart(ctxBarChartGrowthTotalFans, {
     type: 'bar',
     data: {
-        labels: ['Dec 06', 'Dec 09', 'Dec 12', 'Dec 15', 'Dec 18', 'Dec 21', 'Dec 24', 'Dec 27', 'Dec 30', 'Jan 02'],
+        labels: [<?php foreach ($audience_relateds as $audience_related) {
+          echo "'" . $audience_related->created_at . "',";
+        } ?>],
         datasets: [
           {
             label               : 'Electronics',
