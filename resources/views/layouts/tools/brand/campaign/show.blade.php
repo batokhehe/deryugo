@@ -79,6 +79,7 @@
                   <?php
                     if($data->status == '1'){ ?>
                       <a class="btn btn-success pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">START CAMPAIGN</a>
+                      <a class="btn btn-danger pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">STOP CAMPAIGN</a>
                   <?php } ?>
                     <table id="datatablesDetail" class="table table-bordered table-striped">
                       <thead>

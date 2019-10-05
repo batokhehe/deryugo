@@ -81,6 +81,9 @@
               </table>
             
               <!-- /.box-body -->
+              <div class="box-footer pull-left">
+                <a class="btn btn-default" href="{{ route('brand.campaign.detail' , ['id' => $data->id]) }}"><i class="fa fa-back"></i> Back</a>
+              </div>
               <div class="box-footer pull-right">
                 <input type="submit" class="btn btn-danger" name="decline_draft" value="DECLINE" onclick="return confirm('Are You Sure?')" />
                 <input type="submit" class="btn btn-success" name="accept_draft" value="ACCEPT" onclick="return confirm('Are You Sure?')" />
