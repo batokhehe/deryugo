@@ -65,9 +65,13 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-5">
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Twitter</label>
                         <input type="text" class="form-control" name="post_frequency" placeholder="Twitter">
+                      </div> -->
+                      <div class="form-group">
+                        <label>Instagram</label>
+                        <input type="text" class="form-control" name="instagram" placeholder="Instagram" value="{{ $influencer->instagram_username }}" />
                       </div>
                     </div>
                   </div>
@@ -91,15 +95,19 @@
                     </div>
                     <div class="col-md-1">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-2">
                       <div class="form-group">
+                        <label>Averege Impression</label>
+                        <input type="text" class="form-control" name="avg_impression" placeholder="150" value="" />
+                      </div>
+                      <!-- <div class="form-group">
                         <label>Instagram</label>
                         <input type="text" class="form-control" name="instagram" placeholder="Instagram" value="{{ $influencer->instagram_username }}" />
-                      </div>
-                      <div class="form-group">
+                      </div> -->
+                      <!-- <div class="form-group">
                         <label>Youtube</label>
                         <input type="text" class="form-control" name="post_frequency" placeholder="Youtube">
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -113,10 +121,16 @@
                     </div>
                     <div class="col-md-5">
                       <div class="form-group">
+                        <label>Photo Insight</label>
+                        <input type="file" name="post_reference_image" id="post-image">
+                        <img id="preview" src="#" alt="Image Preview" width="30%" />
+                      </div>
+                    </div>
+                      <!-- <div class="form-group">
                         <label>Facebook</label>
                         <input type="text" class="form-control" name="post_frequency" placeholder="Facebook">
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
             

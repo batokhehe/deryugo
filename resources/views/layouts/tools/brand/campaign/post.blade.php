@@ -54,7 +54,7 @@
             <form action="{{ route('brand.campaign.process_draft', ['id' => $data->id]) }}" method="POST">
               {{ csrf_field() }}
               <input type="hidden" name="influencer" value="{{ $influencer }}">
-              <table id="datatables" class="table table-bordered table-striped">
+              <table id="datatablesDetail" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>
@@ -85,6 +85,9 @@
               </table>
             
               <!-- /.box-body -->
+              <div class="box-footer pull-left">
+                <a class="btn btn-default" href="{{ route('brand.campaign.detail' , ['id' => $data->id]) }}"><i class="fa fa-back"></i> Back</a>
+              </div>
               <div class="box-footer pull-right">
               </div>
             </form>
