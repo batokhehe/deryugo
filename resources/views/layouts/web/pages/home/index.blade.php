@@ -32,31 +32,32 @@
 </section>
 <!-- ##### Hero Area End ##### -->
 
-<div class="section" style="margin-top: 50px;">
+<div class="section" style="margin-top: 50px; margin-bottom: 50px;">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="row mb-5" style="margin-left: 160px; margin-right: 160px;">
+      
         <div class="site-section-heading">
           <h2>{{ $cms_homes_contents->title }}</h2>
         </div>
-      </div>
-      <div class="col-lg-5 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
+
         <p style="text-align: justify;">{{ $cms_homes_contents->desc }}</p>
-      </div>
+      
     </div>
 
     @php $i = 1; @endphp
     @foreach ($cms_homes_contents_details as $cms_homes_contents_detail)
     @if(($i % 2) == 0 )
-    <div class="row align-items-center speaker">
+    <div class="row align-items-center speaker" style="margin-top: 50px;">
       <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
         <img src="{{ url('/assets/images/home_content/' . $cms_homes_contents_detail->image) }}" alt="Image" class="img-fluid">
       </div>
-      <div class="col-lg-6 ml-auto order-lg-1">
-        <h2 class="text-white" data-aos="fade-left" data-aos-delay="200" style="text-align: left;margin-left: 60px;">
-          {{ $cms_homes_contents_detail->title }}
-        </h2>
-        <div class="bio pr-lg-5">
+      <div class="col-lg-4 order-lg-1" style="margin-left: 35px;">
+        <div class="site-section-heading2">
+          <h2 class="text-white" data-aos="fade-left" data-aos-delay="200" style="text-align: right;margin-left: 60px; font-size: 2.5rem; margin-bottom: 30px;">
+            {{ $cms_homes_contents_detail->title }}
+          </h2>
+        </div>
+        <div class="bio">
           <p class="mb-4" data-aos="fade-left" data-aos-delay="400" style="text-align: justify;">
             {{ $cms_homes_contents_detail->desc }}
           </p>
@@ -64,15 +65,17 @@
       </div>
     </div>
     @else
-    <div class="row align-items-center speaker">
-      <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+    <div class="row align-items-center speaker" style="margin-top: 50px;">
+      <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100" style="margin-left: 35px;">
         <img src="{{ url('/assets/images/home_content/' . $cms_homes_contents_detail->image) }}" alt="Image" class="img-fluid">
       </div>
-      <div class="col-lg-6 ml-auto">
-        <h2 class="text-white" data-aos="fade-right" data-aos-delay="200" style="text-align: right;">
-          {{ $cms_homes_contents_detail->title }}
-        </h2>
-        <div class="bio pl-lg-5">
+      <div class="col-lg-4">
+        <div class="site-section-heading3">
+          <h2 class="text-white" data-aos="fade-right" data-aos-delay="200" style="text-align: left; font-size: 2.5rem; margin-bottom: 30px;">
+            {{ $cms_homes_contents_detail->title }}
+          </h2>
+        </div>
+        <div class="bio">
           <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">
             {{ $cms_homes_contents_detail->desc }}
           </p>
@@ -85,12 +88,12 @@
   </div>
 </div>
 
-<div class="site-section2">
+<div class="site-section2" style="background-color: #000000;">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-4 ">
+    <div class="row mb-5"style="margin-left: 160px; margin-right: 160px;">
+      <div class="">
         <div class="site-section-heading" data-aos="fade-up">
-          <h2>{{ $cms_homes_images_contents->title }}</h2>
+          <h2 style="color:#ffffff;">{{ $cms_homes_images_contents->title }}</h2>
         </div>
       </div>
       <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
@@ -128,48 +131,54 @@
     </div>
   </div>
 </div>
+</div>
 
-<div class="container">
-  <div class="row mb-5">
-    <div class="col-lg-4 ">
-      <div class="site-section-heading" data-aos="fade-up">
-          <h2>{{ $cms_homes_images_contents3->title }}</h2>
+
+<div class="site-section2">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-4 ">
+        <div class="site-section-heading" data-aos="fade-up">
+            <h2>{{ $cms_homes_images_contents3->title }}</h2>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+          <p style="text-align: justify;">{{ $cms_homes_images_contents3->desc }}</p>
+        </div>
+    </div>
+    <div class="row mb-5">
+      @php $j = 1 @endphp
+      @foreach ($cms_homes_images_contents_details3 as $cms_homes_images_contents_detail3)
+      @if($j == 1)
+      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+      @endif
+      @if(!empty($cms_homes_images_contents_detail3->name))
+      <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
+        <img src="{{ url('/assets/images/image_content/' . $cms_homes_images_contents_detail3->image) }}" alt="Image" class="img-fluid">
+        <div class="overlay">
+          <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_homes_images_contents_detail3->name }} </h4>
+          <h2>{{ $cms_homes_images_contents_detail3->title }}</h2>
+          <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal2">
+            <span>Read More</span>
+          </a>
         </div>
       </div>
-      <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
-        <p style="text-align: justify;">{{ $cms_homes_images_contents3->desc }}</p>
+      @else
+      <a href="{{ url('' . $cms_homes_images_contents_detail3->desc) }}" class="btn-custom" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px;">
+        <span>{{ $cms_homes_images_contents_detail3->title }}</span>
+      </a>
+      @endif
+      @php $j++ @endphp
+      @if($j > 3 || $cms_homes_images_contents_detail3->image_height > 699)
+      @php $j = 1 @endphp
       </div>
-  </div>
-  <div class="row mb-5">
-    @php $j = 1 @endphp
-    @foreach ($cms_homes_images_contents_details3 as $cms_homes_images_contents_detail3)
-    @if($j == 1)
-    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-    @endif
-    @if(!empty($cms_homes_images_contents_detail3->name))
-    <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
-      <img src="{{ url('/assets/images/image_content/' . $cms_homes_images_contents_detail3->image) }}" alt="Image" class="img-fluid">
-      <div class="overlay">
-        <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_homes_images_contents_detail3->name }} </h4>
-        <h2>{{ $cms_homes_images_contents_detail3->title }}</h2>
-        <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal2">
-          <span>Read More</span>
-        </a>
-      </div>
+      @endif
+      @endforeach
     </div>
-    @else
-    <a href="{{ url('' . $cms_homes_images_contents_detail3->desc) }}" class="btn-custom" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px;">
-      <span>{{ $cms_homes_images_contents_detail3->title }}</span>
-    </a>
-    @endif
-    @php $j++ @endphp
-    @if($j > 3 || $cms_homes_images_contents_detail3->image_height > 699)
-    @php $j = 1 @endphp
-    </div>
-    @endif
-    @endforeach
   </div>
 </div>
+
+
 
 <div class="">
   <div class="container">
