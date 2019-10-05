@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
-        <p style="text-align: justify;">{{ $cms_homes_images_contents->desc }}</p>
+        <p style="text-align: justify;"><?php echo nl2br($cms_homes_images_contents->desc); ?></p>
       </div>
     </div>
     <div class="row mb-5">

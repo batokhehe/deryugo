@@ -47,7 +47,7 @@
                   <td>{{ date('d M Y', strtotime($campaign->start_date)) . ' - ' . date('d M Y', strtotime($campaign->end_date)) }}</td>
                   <td>
                   <?php
-                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running');
+                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running', '9' => 'Stopped');
                     echo $status[$campaign->campaign_status];
                   ?></td>
                   <td>

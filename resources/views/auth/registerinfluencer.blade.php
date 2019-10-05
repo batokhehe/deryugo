@@ -100,6 +100,17 @@
 						<span class="focus-input100"></span>
 					</div>
 
+          <div class="wrap-input100 validate-input" data-validate = "Instagram Username is required">
+            <span class="label-input100">Instagram Username</span>
+            <input class="input100" type="text" name="instagram_username" placeholder="Instagram Username" id="instagram_username">
+            @if ($errors->has('instagram_username'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('instagram_username') }}</strong>
+                            </span>
+                        @endif
+            <span class="focus-input100"></span>
+          </div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<span class="label-input100">Email</span>
 						<input class="input100" type="text" name="email" placeholder="Email" id="email">

@@ -45,12 +45,12 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-5">
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Photo Profile</label>
                         <input type="file" name="post_reference_image" id="post-image">
                         <img id="preview" src="#" alt="Image Preview" width="30%" />
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="col-md-12">
                     <div class="callout callout-info">
@@ -97,8 +97,8 @@
                     </div>
                     <div class="col-md-2">
                       <div class="form-group">
-                        <label>Averege Impression</label>
-                        <input type="text" class="form-control" name="avg_impression" placeholder="150" value="" />
+                        <label>Average Impression</label>
+                        <input type="text" class="form-control" name="avg_impression" placeholder="150" value="{{ $influencer->avg_impression }}" />
                       </div>
                       <!-- <div class="form-group">
                         <label>Instagram</label>
@@ -122,8 +122,8 @@
                     <div class="col-md-5">
                       <div class="form-group">
                         <label>Photo Insight</label>
-                        <input type="file" name="post_reference_image" id="post-image">
-                        <img id="preview" src="#" alt="Image Preview" width="30%" />
+                        <input type="file" name="avg_impression_image" id="image">
+                        <img id="preview" src="<?php echo $influencer->avg_impression ? url('assets/images/avg_impression/' . $influencer->avg_impression_image) : '#';  ?>" alt="Image Preview" width="30%" />
                       </div>
                     </div>
                       <!-- <div class="form-group">
@@ -136,7 +136,7 @@
             
             <!-- /.box-body -->
             <div class="box-footer">
-              <a class="btn btn-default" href="{{ ('/influencer/tools/profile') }}"><i class="fa fa-back"></i> Back</a>
+              <a class="btn btn-default" href="{{ route('profile.influencer') }}"><i class="fa fa-back"></i> Back</a>
               <button type="submit" class="btn btn-info pull-right">Submit</button>
             </div>
           </div>
@@ -151,7 +151,7 @@
 
 @endsection
 @section('scripts')
-@include('layouts.tools.influencer.mycampaign.script')
+@include('layouts.tools.influencer.profile.script')
 @endsection
 
 

@@ -60,7 +60,7 @@
                       <td style="padding-left: 15px;">:</td>
                       <td style="padding-left: 15px;">{{ $influencer->instagram_username }}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                       <td>Youtube</td>
                       <td style="padding-left: 15px;">:</td>
                       <td style="padding-left: 15px;">-</td>
@@ -74,7 +74,7 @@
                       <td>Facebook</td>
                       <td style="padding-left: 15px;">:</td>
                       <td style="padding-left: 15px;">-</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
                 <a href="{{ route('profile.influencer.edit') }}" type="button" class="btn-sm btn-success" style="float: inline-end;">EDIT</a>

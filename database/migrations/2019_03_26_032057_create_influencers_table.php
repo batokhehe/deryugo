@@ -21,6 +21,8 @@ class CreateInfluencersTable extends Migration
         $table->string('engagement_rate');
         $table->string('type');
         $table->string('followers');
+        $table->string('avg_impression');
+        $table->string('avg_impression_image');
         $table->string('instagram_username');
         $table->string('email');
         $table->string('phone_number')->nullable();
