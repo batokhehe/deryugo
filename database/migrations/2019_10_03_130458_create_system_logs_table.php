@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostRelatedTable extends Migration
+class CreateSystemLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePostRelatedTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_relateds', function (Blueprint $table) {
+        Schema::create('system_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('influencer_id');
-            $table->string('post_id');
-            $table->string('like');
-            $table->string('comment');
-            $table->text('image');
+            $table->string('module_id');
+            $table->string('influencer_id')->nullable();
+            $table->string('brand_id')->nullable();
+            $table->string('campaign_id')->nullable();
+            $table->dateTime('read_at')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePostRelatedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_relateds');
+        Schema::dropIfExists('system_logs');
     }
 }

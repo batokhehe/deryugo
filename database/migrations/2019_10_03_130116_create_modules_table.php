@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostRelatedTable extends Migration
+class CreateModulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePostRelatedTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_relateds', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('influencer_id');
-            $table->string('post_id');
-            $table->string('like');
-            $table->string('comment');
-            $table->text('image');
+        Schema::create('modules', function (Blueprint $table) {
+            $table->integer('id');
+            $table->string('module');
+            $table->string('event');
+            $table->string('side');
+            $table->string('messages');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreatePostRelatedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_relateds');
+        Schema::dropIfExists('modules');
     }
 }
