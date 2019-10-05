@@ -13,7 +13,7 @@ class CreatePostRelatedTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_related', function (Blueprint $table) {
+        Schema::create('post_relateds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('influencer_id');
             $table->string('post_id');
@@ -31,6 +31,6 @@ class CreatePostRelatedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_related');
+        Schema::dropIfExists('post_relateds');
     }
 }

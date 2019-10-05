@@ -6,11 +6,13 @@ use App\User;
 use App\Influencer;
 use App\Category;
 use App\PostRelated;
+use App\AudienceRelated;
 use App\InfluencerCategory;
 use Illuminate\Http\Request;
 use Validator;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -70,5 +72,21 @@ class ProfileController extends Controller
         
         Influencer::where('id', $influencer->id)->update($data);
         return redirect()->route('profile.influencer');
+    }
+
+    public function socmed(){
+        $influencer = Influencer::where('user_id', auth()->user()->id)->first();
+        $audience_related = DB::table('audience_related')
+                     ->select(DB::raw('SUM(fans_growth) as fans_growth'))
+                     ->where('influencer_id', $influencer->id)
+                     ->first();
+        $audience_relateds = DB::table('audience_related')
+                     ->select(DB::raw('*'))
+                     ->where('influencer_id', $influencer->id)
+                     ->get();
+        return view('layouts.tools.influencer.socmed.index')
+            ->with('influencer', $influencer)
+            ->with('audience_related', $audience_related)
+            ->with('audience_relateds', $audience_relateds);
     }
 }
