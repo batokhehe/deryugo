@@ -49,13 +49,8 @@
                         <label>Photo Profile</label>
                         <input type="file" name="post_reference_image" id="post-image">
                         <img id="preview" src="#" alt="Image Preview" width="30%" />
-<<<<<<< HEAD
                       </div> -->
                     </div>
-=======
-                      </div>
-                    </div> -->
->>>>>>> d3f61e78b5f3b60190df7a7a04cc0bdbe382e275
                   </div>
                   <div class="col-md-12">
                     <div class="callout callout-info">
