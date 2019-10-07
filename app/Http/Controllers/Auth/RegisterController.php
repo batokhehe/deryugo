@@ -96,9 +96,11 @@ class RegisterController extends Controller
               'engagement_rate' => '0',
               'type' => 'Nano',
               'followers' => '0',
-              'instagram_username' => '',
+              'instagram_username' => $data['instagram_username'],
               'password' => '',
-              'status' => '0'
+              'status' => '0',
+              'avg_impression' => '',
+              'avg_impression_image' => '',
             ]);
             
             foreach($data['interest'] as $int){

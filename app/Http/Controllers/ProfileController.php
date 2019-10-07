@@ -61,7 +61,14 @@ class ProfileController extends Controller
     
     public function update(Request $request){
         $influencer = Influencer::where('user_id', auth()->user()->id)->first();
-        $data = array('instagram_username' => $request->post('instagram'));
+        $image = $request->file('avg_impression_image');
+        $image_name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
+        $image->move('assets/images/avg_impression', $image_name);
+        $data = array(
+            'instagram_username' => $request->post('instagram'),
+            'avg_impression' => $request->post('avg_impression'),
+            'avg_impression_image' => $image_name,
+        );
         $insert = array();
         
         InfluencerCategory::where('influencer_id', $influencer->id)->delete();

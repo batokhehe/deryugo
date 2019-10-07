@@ -66,6 +66,7 @@ Route::prefix('brand')->group(function() {
 	Route::post('/tools/newcampaign/store', 'CampaignController@store')->name('brand.campaign.store');
 	Route::get('/tools/mycampaign', 'CampaignController@index')->name('brand.campaign.index');
 	Route::get('/tools/mycampaign/start/{id}', 'CampaignController@start')->name('brand.campaign.start');
+	Route::get('/tools/mycampaign/stop/{id}', 'CampaignController@stop')->name('brand.campaign.stop');
 	Route::get('/tools/mycampaign/post/{id}', 'CampaignController@post')->name('brand.campaign.post');
 	Route::get('/tools/mycampaign/detail/{id}', 'CampaignController@show')->name('brand.campaign.detail');
 	Route::get('/tools/mycampaign/detail/draft/{id}', 'CampaignController@draft')->name('brand.campaign.draft');

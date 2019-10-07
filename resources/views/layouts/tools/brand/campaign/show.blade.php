@@ -79,8 +79,10 @@
                   <?php
                     if($data->status == '1'){ ?>
                       <a class="btn btn-success pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">START CAMPAIGN</a>
-                      <a class="btn btn-danger pull-right" href="{{ route('brand.campaign.start', ['id' => $data->id]) }}">STOP CAMPAIGN</a>
-                  <?php } ?>
+                    <?php } ?>
+                    <?php if($data->status == '2'){ ?>
+                      <a class="btn btn-danger pull-right" href="{{ route('brand.campaign.stop', ['id' => $data->id]) }}">STOP CAMPAIGN</a>
+                    <?php } ?>
                     <table id="datatablesDetail" class="table table-bordered table-striped">
                       <thead>
                       <tr>
@@ -121,12 +123,12 @@
                             @endif
                           </td>
                           <td>
-                            @if ($detail->campaign_influencer_status != '0')
+                            @if ($detail->campaign_influencer_status == '1')
                             <a href="{{ route('brand.campaign.draft', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">DRAFT</a>
                             @endif
                           </td>
                           <td>
-                            @if ($data->status == '2')
+                            @if ($data->status == '2' || $data->status == '9')
                             <a href="{{ route('brand.campaign.post', ['id' => $data->id, 'influencer' => $detail->id ]) }}" type="button" class="btn-sm btn-success">POST</a>
                             @endif
                             @if ($detail->campaign_influencer_status == '3')

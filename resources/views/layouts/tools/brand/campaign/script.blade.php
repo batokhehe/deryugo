@@ -28,10 +28,11 @@
         
         var startDate = new Date(selected.date.valueOf());
         startDate.setDate(startDate.getDate() + 1);
-        var maxDate = new Date();
+        var maxDate = new Date(selected.date.valueOf());
         maxDate.setDate(startDate.getDate() + 4);
         $('#datepickerdeadline').datepicker('setStartDate', startDate);
         $('#datepickerdeadline').datepicker('setEndDate', maxDate);
+        console.log('Start Date : ' + startDate + ', End Date : ' + maxDate);
     });
     $('#datepickerperiodto').datepicker({
       format: 'dd M yyyy',

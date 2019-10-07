@@ -60,7 +60,7 @@
                       <td style="padding-left: 15px;">:</td>
                       <td style="padding-left: 15px;">{{ $influencer->instagram_username }}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                       <td>Youtube</td>
                       <td style="padding-left: 15px;">:</td>
                       <td style="padding-left: 15px;">-</td>
@@ -74,23 +74,34 @@
                       <td>Facebook</td>
                       <td style="padding-left: 15px;">:</td>
                       <td style="padding-left: 15px;">-</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
                 <a href="{{ route('profile.influencer.edit') }}" type="button" class="btn-sm btn-success" style="float: inline-end;">EDIT</a>
               </div>
               @if(Auth::user()->status == 1)
               <div class="col-md-6">
-                  <h5 class="text-white" style="margin-bottom: 20px;text-align: center;"><b>FEED INSTAGRAM<b></h5>
-                  <div class="row">
-                    @foreach ($influencer_images as $data)
-                        <div class="col-md-4">
-                            <img src="{{ $data->image }}" alt="Image" class="img-fluid" style="width: 100%;">
-                        </div>
-                    @endforeach
-                    </div>
+                <h5 class="text-white" style="margin-bottom: 20px;text-align: center;"><b>FEED INSTAGRAM<b></h5>
+                <div class="row">
+                  @foreach ($influencer_images as $data)
+                      <div class="col-md-4">
+                          <img src="{{ $data->image }}" alt="Image" class="img-fluid" style="width: 100%;">
+                      </div>
+                  @endforeach
                   </div>
-                @endif
+                </div>
+              @endif
+              @if(Auth::user()->status == 0)
+              <div class="col-md-6">
+                <div class="callout callout-danger">
+                  <h4>
+                  <i class="fa fa-info"></i>
+                  Note
+                  </h4>
+                  <p>Your Account Will be Verified Soon.</p>
+                </div>
+              </div>
+              @endif
             </div>   
           </div>
         </div>
