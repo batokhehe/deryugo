@@ -14,11 +14,12 @@ class CreateModulesTable extends Migration
     public function up()
     {
         Schema::create('modules', function (Blueprint $table) {
-            $table->integer('id');
+            $table->string('id');
             $table->string('module');
             $table->string('event');
             $table->string('side');
             $table->string('messages');
+            $table->string('icon');
             $table->timestamps();
         });
     }

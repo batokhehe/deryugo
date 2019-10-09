@@ -149,12 +149,19 @@ class CampaignController extends Controller
                 'status' => '0',
             );
             $systemLog[] = array(
-                'module_id' => '101',
+                'module_id' => '002',
                 'brand_id' => $brand_id,
                 'influencer_id' => $value,
                 'campaign_id' => $result->id,
             );
         }
+
+        $systemLog[] = array(
+                'module_id' => '101',
+                'brand_id' => $brand_id,
+                'influencer_id' => '',
+                'campaign_id' => $result->id,
+            );
 
         CampaignInfluencer::insert($details);
         SystemLog::insert($systemLog);
@@ -395,7 +402,7 @@ class CampaignController extends Controller
         // echo $id;
         $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         $systemLog = array(
-            'module_id' => '002',
+            'module_id' => '003',
             'influencer_id' => $influencer_id,
             'campaign_id' => $id,
         );
@@ -411,7 +418,7 @@ class CampaignController extends Controller
         $influencer_id = Influencer::where('user_id', $user_id)->first()->id;
         $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         $systemLog = array(
-            'module_id' => '003',
+            'module_id' => '004',
             'influencer_id' => $influencer_id,
             'campaign_id' => $id,
         );
@@ -454,7 +461,7 @@ class CampaignController extends Controller
         // CampaignPost::where('campaign_id', $id)->delete();
         $result = CampaignPost::insert($campaign_posts);
         $systemLog = array(
-            'module_id' => '005',
+            'module_id' => '006',
             'influencer_id' => $influencer_id,
             'campaign_id' => $id,
         );
@@ -492,7 +499,7 @@ class CampaignController extends Controller
         CampaignDraft::where('campaign_id', $id)->delete();
         $result = CampaignDraft::insert($campaign_drafts);
         $systemLog = array(
-            'module_id' => '004',
+            'module_id' => '005',
             'influencer_id' => $influencer_id,
             'campaign_id' => $id,
         );

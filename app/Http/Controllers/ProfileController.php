@@ -8,6 +8,9 @@ use App\Category;
 use App\PostRelated;
 use App\AudienceRelated;
 use App\InfluencerCategory;
+use App\Module;
+use App\SystemLog;
+use App\Brand;
 use Illuminate\Http\Request;
 use Validator;
 use GuzzleHttp\Client;
@@ -95,5 +98,21 @@ class ProfileController extends Controller
             ->with('influencer', $influencer)
             ->with('audience_related', $audience_related)
             ->with('audience_relateds', $audience_relateds);
+    }
+
+    public function brand_read(){
+        $data = array('read_at' => now());
+        $modules = Module::select('id')->where('side', '=', '1')->get()->toArray();
+        $brand = Brand::where('user_id', auth()->user()->id)->first();
+
+        SystemLog::where('read_at', '=', null)->whereIn('module_id', $modules)->where('brand_id', $brand->id)->update($data);
+    }
+
+    public function influencer_read(){
+        $data = array('read_at' => now());
+        $modules = Module::select('id')->where('side', '=', '0')->get()->toArray();
+        $influencer = Influencer::where('user_id', auth()->user()->id)->first();
+
+        SystemLog::where('read_at', '=', null)->whereIn('module_id', $modules)->where('influencer_id', $influencer->id)->update($data);
     }
 }

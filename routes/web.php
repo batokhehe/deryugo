@@ -36,6 +36,7 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/profile', 'ProfileController@index')->name('profile.influencer');
 	Route::get('/profile/edit', 'ProfileController@edit')->name('profile.influencer.edit');
 	Route::post('/profile/update', 'ProfileController@update')->name('profile.influencer.update');
+	Route::get('/notification/read', 'ProfileController@influencer_read')->name('notifications.influencer.read');
 	Route::get('/tools/socmed', 'ProfileController@socmed');
 	Route::get('/tools/report', function () { return view('layouts.tools.influencer.report.index'); });
 
@@ -59,6 +60,7 @@ Route::prefix('brand')->group(function() {
 
 	//LOGIN
 	Route::get('/login', function () { return view('auth.loginbrand'); })->name('login.brand');
+	Route::get('/notification/read', 'ProfileController@brand_read')->name('notifications.brand.read');
 
 	//TOOLS
 	Route::get('/tools', function () { return view('layouts.tools.brand.home.index'); });
