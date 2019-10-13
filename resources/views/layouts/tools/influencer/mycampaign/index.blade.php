@@ -57,6 +57,9 @@
                     @if ($campaign->campaign_status == '2')
                     <a href="{{ route('influencer.campaign.post', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">POST</a>
                     @endif
+                    @if ($campaign->campaign_status == '9')
+                    <a href="{{ route('influencer.campaign.paymentoption', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">PAYMENT OPTION</a>
+                    @endif
 
                   </td>
                 </tr>

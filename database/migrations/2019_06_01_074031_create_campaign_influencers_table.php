@@ -21,6 +21,8 @@ class CreateCampaignInfluencersTable extends Migration
             $table->string('type');
             $table->string('followers');
             $table->string('reason')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('bank_account')->nullable();
             $table->integer('status');
             $table->timestamps();
         });

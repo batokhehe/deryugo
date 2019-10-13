@@ -51,6 +51,9 @@ Route::prefix('influencer')->group(function() {
 	Route::post('/tools/mycampaign/post/update/{id}', 'CampaignController@update_post_influencer')->name('influencer.campaign.update_post');
 	Route::get('/tools/mycampaign/draft/{id}', 'CampaignController@draft_influencer')->name('influencer.campaign.draft');
 	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');	
+	Route::post('/tools/mycampaign/draft/revision/{id}', 'CampaignController@revision_draft_influencer')->name('influencer.campaign.revision');	
+	Route::get('/tools/mycampaign/paymentoption/{id}', 'CampaignController@paymentoption_influencer')->name('influencer.campaign.paymentoption');
+	Route::post('/tools/mycampaign/paymentoption/update/{id}', 'CampaignController@update_paymentoption_influencer')->name('influencer.campaign.update_paymentoption');
 });
 
 //BRAND
@@ -73,6 +76,7 @@ Route::prefix('brand')->group(function() {
 	Route::get('/tools/mycampaign/detail/{id}', 'CampaignController@show')->name('brand.campaign.detail');
 	Route::get('/tools/mycampaign/detail/draft/{id}', 'CampaignController@draft')->name('brand.campaign.draft');
 	Route::post('/tools/mycampaign/detail/draft/process/{id}', 'CampaignController@process_draft')->name('brand.campaign.process_draft');
+	Route::get('/tools/mycampaign/report/{id}', 'CampaignController@report')->name('brand.campaign.report');
 // 	Route::get('/tools/mycampaign/detail/draft/accept/{id}', 'CampaignController@accept_draft')->name('brand.campaign.accept_draft');
 // 	Route::get('/tools/mycampaign/detail/draft/decline/{id}', 'CampaignController@decline_draft')->name('brand.campaign.decline_draft');
 	Route::get('/tools/socmed', function () { return view('layouts.tools.brand.socmed.index'); });

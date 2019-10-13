@@ -1,13 +1,16 @@
-@extends('layouts.tools.brand.master.master')
-@section('content')
-
-<!-- Content Wrapper. Contains page content -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Invoice
-        <small>#007612</small>
+        Campaign Report -
+        <small>{{ $data->name }}</small>
       </h1>
     </section>
 
@@ -25,13 +28,14 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-globe"></i> Deryugo
-            <small class="pull-right">Date: 2/10/2014</small>
+            <small class="pull-right">Start Date: {{ $data->start_date }}</small>
+            <small class="pull-right">Stop Date: {{ $data->stopped_at }}<</small>
           </h2>
         </div>
         <!-- /.col -->
       </div>
       <!-- info row -->
-      <div class="row invoice-info">
+      <!-- <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
           From
           <address>
@@ -42,7 +46,6 @@
             Email: info@almasaeedstudio.com
           </address>
         </div>
-        <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           To
           <address>
@@ -53,7 +56,6 @@
             Email: john.doe@example.com
           </address>
         </div>
-        <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           <b>Invoice #007612</b><br>
           <br>
@@ -61,8 +63,7 @@
           <b>Payment Due:</b> 2/22/2014<br>
           <b>Account:</b> 968-34567
         </div>
-        <!-- /.col -->
-      </div>
+      </div> -->
       <!-- /.row -->
 
       <!-- Table row -->
@@ -71,42 +72,41 @@
           <table class="table table-striped">
             <thead>
             <tr>
-              <th>Qty</th>
-              <th>Product</th>
-              <th>Serial #</th>
-              <th>Description</th>
-              <th>Subtotal</th>
+              <th>No</th>
+              <th>Post</th>
+              <th>Like</th>
+              <th>Comment</th>
+              <th>Income</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>Call of Duty</td>
-              <td>455-981-221</td>
-              <td>El snort testosterone trophy driving gloves handsome</td>
-              <td>$64.50</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Need for Speed IV</td>
-              <td>247-925-726</td>
-              <td>Wes Anderson umami biodiesel</td>
-              <td>$50.00</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Monsters DVD</td>
-              <td>735-845-642</td>
-              <td>Terry Richardson helvetica tousled street art master</td>
-              <td>$10.70</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Grown Ups Blue Ray</td>
-              <td>422-568-642</td>
-              <td>Tousled lomo letterpress</td>
-              <td>$25.99</td>
-            </tr>
+              @php $i = 1 @endphp
+              @php $total_income = 0 @endphp
+              @foreach($details as $detail)
+              <tr>
+                <td>{{ $i }}</td>
+                <td><img width="200px" src="{{ $detail->image }}" /><br>{{ $detail->post_id }}</td>
+                <td>{{ $detail->comment }}</td>
+                <td>{{ $detail->like }}</td>
+                <?php 
+                if($detail->type == "Nano"){
+                    $type_price = '4000';
+                  } else if($details->type == "Micro"){
+                    $type_price = '6000';
+                  } else {
+                    $type_price = '5000';
+                  }  
+                  ?>
+                <td>
+                  <?php 
+                  $income = (($detail->comment + $detail->like) / $detail->avg_impression) * $type_price; 
+                  $total_income = $total_income + $income;
+                  echo $income; 
+                  ?>
+                </td>
+              </tr>
+              @php $i++ @endphp
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -116,7 +116,7 @@
 
       <div class="row">
         <!-- accepted payments column -->
-        <div class="col-xs-6">
+        <!-- <div class="col-xs-6">
           <p class="lead">Payment Methods:</p>
           <img src="../../dist/img/credit/visa.png" alt="Visa">
           <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
@@ -127,28 +127,24 @@
             Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
             dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
           </p>
-        </div>
+        </div> -->
         <!-- /.col -->
         <div class="col-xs-6">
-          <p class="lead">Amount Due 2/22/2014</p>
+          <p class="lead">Amount Due {{ $data->stopped_at }}</p>
 
           <div class="table-responsive">
             <table class="table">
               <tr>
                 <th style="width:50%">Subtotal:</th>
-                <td>$250.30</td>
+                <td>{{ $total_income }}</td>
               </tr>
               <tr>
-                <th>Tax (9.3%)</th>
-                <td>$10.34</td>
-              </tr>
-              <tr>
-                <th>Shipping:</th>
-                <td>$5.80</td>
+                <th>Tax (10%)</th>
+                <td>{{ $total_income * 0.1 }}</td>
               </tr>
               <tr>
                 <th>Total:</th>
-                <td>$265.24</td>
+                <td>{{ $total_income + $total_income * 0.1 }}</td>
               </tr>
             </table>
           </div>
@@ -158,7 +154,7 @@
       <!-- /.row -->
 
       <!-- this row will not appear when printing -->
-      <div class="row no-print">
+      <!-- <div class="row no-print">
         <div class="col-xs-12">
           <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
           <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
@@ -167,10 +163,10 @@
             <i class="fa fa-download"></i> Generate PDF
           </button>
         </div>
-      </div>
+      </div> -->
     </section>
     <!-- /.content -->
     <div class="clearfix"></div>
   </div>
-
-@endsection
+</body>
+</html>

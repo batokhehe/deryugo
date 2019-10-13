@@ -77,7 +77,11 @@
                       $type_price = '5000';
                     }  
                     ?>
-                  <td><?php $income = (($detail->comment + $detail->like) / $influencer->avg_impression) * $type_price; echo $income; ?></td>
+                  <td>
+                    <?php 
+                    $income = (($detail->comment + $detail->like) / $influencer->avg_impression) * $type_price; echo $income; 
+                    ?>
+                  </td>
                 </tr>
                 @php $i++ @endphp
                 @endforeach

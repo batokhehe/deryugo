@@ -10,10 +10,12 @@ use App\InfluencerCategory;
 use App\CampaignInfluencer;
 use App\CampaignDraft;
 use App\CampaignPost;
+use App\PostRelated;
 use App\SystemLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use PDF;
 
 class CampaignController extends Controller
 {
@@ -225,10 +227,22 @@ class CampaignController extends Controller
 
     public function stop(Request $request, $id)
     {
-        $update = array('status' => '9');
+        $update = array('status' => '9', 'stopped_at' => now());
 
         $user_id = Auth::user()->id;
         $brand_id = Brand::where('user_id', $user_id)->first()->id;
+
+        $campaigns = CampaignPost::where('campaign_id', $id)->get();
+        foreach ($campaigns as $campaign) {
+            $post = PostRelated::where('post_id', $campaign->post_id)->where('influencer_id', $campaign->influencer_id)->first();
+            $data = array(
+                'like' => $post->like,
+                'comment' => $post->comment,
+            );
+
+            CampaignPost::where('id', $campaign->id)->update($data);
+        }
+
 
         Campaign::where('id', $id)->where('brand_id', $brand_id)->update($update);
         $systemLog = array(
@@ -263,11 +277,13 @@ class CampaignController extends Controller
         $details = CampaignPost::where('campaign_id', $id)->where('campaign_posts.influencer_id', $request->get('influencer'))
                     ->leftJoin('post_relateds', 'post_relateds.post_id', 'campaign_posts.post_id')      
                     ->orderBy('campaign_posts.id')->get();
+        $influencer_data = Influencer::where('id', $request->get('influencer'))->first();
     
         return view('layouts.tools.brand.campaign.post')
             ->with('data', $campaigns)
             ->with('details', $details)
-            ->with('influencer', $request->get('influencer'));
+            ->with('influencer', $request->get('influencer'))
+            ->with('influencer_data', $influencer_data);
     }
 
     public function process_draft(Request $request, $id)
@@ -299,6 +315,8 @@ class CampaignController extends Controller
 
         if($request->post('post_image') !== null){
             foreach ($request->post('post_image') as $key => $value) {
+                $r = $request->post('remarks');
+                $update['remarks'] = $r[$key];
                 $data = CampaignDraft::where('campaign_id', $id)->where('influencer_id', $influencer_id)->where('id', $value)->update($update);
             }
         }
@@ -357,6 +375,26 @@ class CampaignController extends Controller
         //
     }
 
+    public function report($id)
+    {
+        //
+        $user_id = Auth::user()->id;
+        $brand = Brand::where('user_id', $user_id)->first();
+        $brand_id = $brand->id;
+        $campaigns = Campaign::where('id', $id)->where('brand_id', $brand_id)->first();
+        $details = CampaignPost::select('campaign_posts.id', 'campaign_posts.post_id', 'campaign_posts.comment', 'campaign_posts.like', 'post_relateds.image', 'influencers.type', 'influencers.avg_impression')
+                ->where('campaign_id', $id)
+                ->join('post_relateds', 'post_relateds.post_id', '=', 'campaign_posts.post_id')
+                ->join('influencers', 'influencers.id', '=', 'campaign_posts.influencer_id')
+                ->get();
+        $pdf = PDF::loadview('layouts/tools/brand/report/index', [
+            'data' => $campaigns,
+            'details' => $details
+        ]);
+        $name = 'campaign-report-' . $campaigns->name;
+        return $pdf->download($name);
+    }
+
     public function index_influencer()
     {
         //mycampaign
@@ -398,12 +436,14 @@ class CampaignController extends Controller
         $update = array('status' => '1');
         $user_id = Auth::user()->id;
         $influencer_id = Influencer::where('user_id', $user_id)->first()->id;
+        $brand_id = Campaign::where('id', $id)->first()->brand_id;
         // echo $influencer_id;
         // echo $id;
         $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
         $systemLog = array(
             'module_id' => '003',
             'influencer_id' => $influencer_id,
+            'brand_id' => $brand_id,
             'campaign_id' => $id,
         );
         SystemLog::insert($systemLog);
@@ -417,9 +457,11 @@ class CampaignController extends Controller
         $user_id = Auth::user()->id;
         $influencer_id = Influencer::where('user_id', $user_id)->first()->id;
         $data = CampaignInfluencer::where('campaign_id', $id)->where('influencer_id', $influencer_id)->update($update);
+        $brand_id = Campaign::where('id', $id)->first()->brand_id;
         $systemLog = array(
             'module_id' => '004',
             'influencer_id' => $influencer_id,
+            'brand_id' => $brand_id,
             'campaign_id' => $id,
         );
         SystemLog::insert($systemLog);
@@ -460,9 +502,11 @@ class CampaignController extends Controller
 
         // CampaignPost::where('campaign_id', $id)->delete();
         $result = CampaignPost::insert($campaign_posts);
+        $brand_id = Campaign::where('id', $id)->first()->brand_id;
         $systemLog = array(
             'module_id' => '006',
             'influencer_id' => $influencer_id,
+            'brand_id' => $brand_id,
             'campaign_id' => $id,
         );
         SystemLog::insert($systemLog);
@@ -475,9 +519,11 @@ class CampaignController extends Controller
         $influencer_id = Influencer::where('user_id', $user_id)->first()->id;
         $campaigns = Campaign::where('id', $id)->first();
         $drafts = CampaignDraft::where('campaign_id', $id)->where('influencer_id', $influencer_id)->get();
+        $drafts_decline = CampaignDraft::where('campaign_id', $id)->where('influencer_id', $influencer_id)->where('status', '2')->get();
         return view('layouts.tools.influencer.mycampaign.edit')
             ->with('data', $campaigns)
-            ->with('details', $drafts);
+            ->with('details', $drafts)
+            ->with('details_decline', $drafts_decline);
     }
 
     public function update_draft_influencer(Request $request, $id)
@@ -496,11 +542,85 @@ class CampaignController extends Controller
             );
         }
 
+
         CampaignDraft::where('campaign_id', $id)->delete();
         $result = CampaignDraft::insert($campaign_drafts);
+        $brand_id = Campaign::where('id', $id)->first()->brand_id;
         $systemLog = array(
             'module_id' => '005',
             'influencer_id' => $influencer_id,
+            'brand_id' => $brand_id,
+            'campaign_id' => $id,
+        );
+        SystemLog::insert($systemLog);
+        return redirect()->route('influencer.campaign.index')->with('success', 'Data Added');
+    }
+
+    public function revision_draft_influencer(Request $request, $id)
+    {
+        $user_id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $user_id)->first()->id;
+        $images = $request->file('image');
+        $ids = $request->post('draft_id');
+        foreach ($images as $key => $value) {
+            $image_name = md5($value->getClientOriginalName() . time()) . '.' . $value->getClientOriginalExtension();
+            $value->move('assets/images/campaign_draft', $image_name);
+            $campaign_drafts = array(
+                'image' => $image_name,
+                'status' => '3'
+            );
+            CampaignDraft::where('campaign_id', $id)->where('id', $ids[$key])->update($campaign_drafts);
+        }    
+        $systemLog = array(
+            'module_id' => '007',
+            'influencer_id' => $influencer_id,
+            'brand_id' => $brand_id,
+            'campaign_id' => $id,
+        );
+        SystemLog::insert($systemLog);
+        return redirect()->route('influencer.campaign.index')->with('success', 'Data Added');
+    }
+
+    public function paymentoption_influencer($id)
+    {
+        $user_id = Auth::user()->id;
+        $influencer = Influencer::where('user_id', $user_id)->first();
+        $influencer_id = $influencer->id;
+        $campaigns = Campaign::where('id', $id)->first();
+        $details = CampaignPost::select('campaign_posts.id', 'campaign_posts.post_id', 'campaign_posts.comment', 'campaign_posts.like', 'post_relateds.image')
+                ->where('campaign_id', $id)
+                ->join('post_relateds', 'post_relateds.post_id', '=', 'campaign_posts.post_id')
+                ->where('campaign_posts.influencer_id', $influencer_id)
+                ->get();
+        $campaign_influencers = CampaignInfluencer::where('campaign_id', $id)
+                ->where('influencer_id', $influencer_id)
+                ->first();
+        return view('layouts.tools.influencer.payment.index')
+            ->with('data', $campaigns)
+            ->with('details', $details)
+            ->with('campaign_influencers', $campaign_influencers)
+            ->with('influencer', $influencer);
+    }
+
+    public function update_paymentoption_influencer(Request $request, $id)
+    {
+        $user_id = Auth::user()->id;
+        $influencer_id = Influencer::where('user_id', $user_id)->first()->id;
+        
+        $data = array(
+            'bank' => $request->post('bank'),
+            'bank_account' => $request->post('bank_account'),
+        );
+
+        // CampaignPost::where('campaign_id', $id)->delete();
+        $result = CampaignInfluencer::where('campaign_id', $id)
+                ->where('influencer_id', $influencer_id)
+                ->update($data);
+        $brand_id = Campaign::where('id', $id)->first()->brand_id;
+        $systemLog = array(
+            'module_id' => '008',
+            'influencer_id' => $influencer_id,
+            'brand_id' => $brand_id,
             'campaign_id' => $id,
         );
         SystemLog::insert($systemLog);

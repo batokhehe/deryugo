@@ -61,7 +61,7 @@
                   <th>Post ID</th>
                   <th>Comment</th>
                   <th>Like</th>
-                  <th>Engagement Rate</th>
+                  <th>Income</th>
                   <th>Status</th>
                 </tr>
                 </thead>
@@ -73,7 +73,19 @@
                   <td><img width="200px" src="{{ $detail->image }}" /><br>{{ $detail->post_id }}</td>
                   <td>{{ $detail->comment }}</td>
                   <td>{{ $detail->like }}</td>
-                  <td>{{ $detail->engagement_rate }}</td>
+                  <?php 
+                  if($influencer_data->type == "Nano"){
+                      $type_price = '4000';
+                    } else if($influencer_data->type == "Micro"){
+                      $type_price = '6000';
+                    } else {
+                      $type_price = '5000';
+                    }  
+                    ?>
+                  <td><?php 
+                  $income = (($detail->comment + $detail->like) / $influencer_data->avg_impression) * $type_price; echo $income; 
+                  ?>
+                  </td>
                   <td> <?php
                     $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running');
                     echo $status[$data->status];
