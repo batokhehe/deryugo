@@ -57,9 +57,10 @@
                   <th>Post ID</th>
                   <th>Comment</th>
                   <th>Like</th>
-                  <th>Engagement Rate</th>
+                  <th>Income</th>
                   <th>Status</th>
                 </tr>
+                <?php $type = $influencer->type; ?>
                 @php $i = 1 @endphp
                 @foreach($details as $detail)
                 <tr>
@@ -67,7 +68,20 @@
                   <td>{{ $detail->post_id }}</td>
                   <td>{{ $detail->comment }}</td>
                   <td>{{ $detail->like }}</td>
-                  <td>{{ $detail->engagement_rate }}</td>
+                  <?php 
+                  if($type == "Nano"){
+                      $type_price = '4000';
+                    } else if($type == "Micro"){
+                      $type_price = '6000';
+                    } else {
+                      $type_price = '5000';
+                    }  
+                    ?>
+                  <td>
+                    <?php 
+                    $income = (($detail->comment + $detail->like) / $influencer->avg_impression) * $type_price; echo $income; 
+                    ?>
+                  </td>
                 </tr>
                 @php $i++ @endphp
                 @endforeach

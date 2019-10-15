@@ -14,7 +14,12 @@
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+        @if(count($details) < 1)
         <form class="form-horizontal" action="{{ route('influencer.campaign.update' , ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+        @endif
+        @if(count($details_decline) > 0)
+        <form class="form-horizontal" action="{{ route('influencer.campaign.revision' , ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+        @endif
         {{csrf_field()}}
         <!-- form start -->
           <div class="box box-primary col-md-12">
@@ -55,13 +60,23 @@
                 <tr>
                   <th>No</th>
                   <th>Images</th>
+                  <th>Remarks</th>
                   <th>Status</th>
                 </tr>
                 @php $i = 1 @endphp
                 @foreach($details as $detail)
                 <tr>
                   <td>{{ $i }}</td>
-                  <td><img width="300px" src="{{ url('/assets/images/campaign_draft/' . $detail->image) }}" /></td>
+                  <td>
+                    <input type="hidden" name="draft_id[]" value="{{ $detail->id }}">
+                    <div class="form-group">
+                      <label for="nama" class="control-label">Image</label>
+                      <input type="file" class="form-control image" name="image[]" accept="image/*">
+                      <img class="preview" src="#" alt="Image Preview" width="50%" />
+                      <img width="300px" src="{{ url('/assets/images/campaign_draft/' . $detail->image) }}" />
+                    </div>
+                  </td>
+                  <td>{{ $detail->remarks }}</td>
                   <td>
                     @if ($detail->status == '1')
                     <a type="button" class="btn-sm btn-success">ACCEPTED</a>
@@ -83,7 +98,7 @@
                       <label for="nama" class="control-label">Image</label>
                       <input type="file" class="form-control image" name="image[]" accept="image/*">
                       <img class="preview" src="#" alt="Image Preview" width="50%" />
-                  </div>
+                    </div>
                   </td>
                   <td></td>
                 </tr>
@@ -97,6 +112,9 @@
               <a class="btn btn-default" href="{{ route('influencer.campaign.index') }}"><i class="fa fa-back"></i> Back</a>
               @if(count($details) < 1)
               <button type="submit" class="btn btn-info pull-right" onclick="return confirm('Are You Sure?')">Submit</button>
+              @endif
+              @if(count($details_decline) > 0)
+              <button type="submit" class="btn btn-info pull-right" onclick="return confirm('Are You Sure?')">Submit Revision</button>
               @endif
             </div>
           </div>

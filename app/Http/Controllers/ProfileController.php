@@ -8,6 +8,9 @@ use App\Category;
 use App\PostRelated;
 use App\AudienceRelated;
 use App\InfluencerCategory;
+use App\Module;
+use App\SystemLog;
+use App\Brand;
 use Illuminate\Http\Request;
 use Validator;
 use GuzzleHttp\Client;
@@ -61,7 +64,14 @@ class ProfileController extends Controller
     
     public function update(Request $request){
         $influencer = Influencer::where('user_id', auth()->user()->id)->first();
-        $data = array('instagram_username' => $request->post('instagram'));
+        $image = $request->file('avg_impression_image');
+        $image_name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
+        $image->move('assets/images/avg_impression', $image_name);
+        $data = array(
+            'instagram_username' => $request->post('instagram'),
+            'avg_impression' => $request->post('avg_impression'),
+            'avg_impression_image' => $image_name,
+        );
         $insert = array();
         
         InfluencerCategory::where('influencer_id', $influencer->id)->delete();
@@ -88,5 +98,21 @@ class ProfileController extends Controller
             ->with('influencer', $influencer)
             ->with('audience_related', $audience_related)
             ->with('audience_relateds', $audience_relateds);
+    }
+
+    public function brand_read(){
+        $data = array('read_at' => now());
+        $modules = Module::select('id')->where('side', '=', '1')->get()->toArray();
+        $brand = Brand::where('user_id', auth()->user()->id)->first();
+
+        SystemLog::where('read_at', '=', null)->whereIn('module_id', $modules)->where('brand_id', $brand->id)->update($data);
+    }
+
+    public function influencer_read(){
+        $data = array('read_at' => now());
+        $modules = Module::select('id')->where('side', '=', '0')->get()->toArray();
+        $influencer = Influencer::where('user_id', auth()->user()->id)->first();
+
+        SystemLog::where('read_at', '=', null)->whereIn('module_id', $modules)->where('influencer_id', $influencer->id)->update($data);
     }
 }

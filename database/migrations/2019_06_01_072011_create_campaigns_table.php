@@ -33,6 +33,7 @@ class CreateCampaignsTable extends Migration
             $table->string('caption')->nullable();
             $table->date('deadline_date')->nullable();
             $table->integer('status');
+            $table->date('stopped_at');
             $table->timestamps();
             $table->softDeletes();
         });

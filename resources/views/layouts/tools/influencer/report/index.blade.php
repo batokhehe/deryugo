@@ -1,4 +1,4 @@
-@extends('layouts.tools.brand.master.master')
+@extends('layouts.tools.influencer.master.master')
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->

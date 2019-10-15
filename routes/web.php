@@ -36,6 +36,7 @@ Route::prefix('influencer')->group(function() {
 	Route::get('/profile', 'ProfileController@index')->name('profile.influencer');
 	Route::get('/profile/edit', 'ProfileController@edit')->name('profile.influencer.edit');
 	Route::post('/profile/update', 'ProfileController@update')->name('profile.influencer.update');
+	Route::get('/notification/read', 'ProfileController@influencer_read')->name('notifications.influencer.read');
 	Route::get('/tools/socmed', 'ProfileController@socmed');
 	Route::get('/tools/report', function () { return view('layouts.tools.influencer.report.index'); });
 
@@ -50,6 +51,9 @@ Route::prefix('influencer')->group(function() {
 	Route::post('/tools/mycampaign/post/update/{id}', 'CampaignController@update_post_influencer')->name('influencer.campaign.update_post');
 	Route::get('/tools/mycampaign/draft/{id}', 'CampaignController@draft_influencer')->name('influencer.campaign.draft');
 	Route::post('/tools/mycampaign/draft/update/{id}', 'CampaignController@update_draft_influencer')->name('influencer.campaign.update');	
+	Route::post('/tools/mycampaign/draft/revision/{id}', 'CampaignController@revision_draft_influencer')->name('influencer.campaign.revision');	
+	Route::get('/tools/mycampaign/paymentoption/{id}', 'CampaignController@paymentoption_influencer')->name('influencer.campaign.paymentoption');
+	Route::post('/tools/mycampaign/paymentoption/update/{id}', 'CampaignController@update_paymentoption_influencer')->name('influencer.campaign.update_paymentoption');
 });
 
 //BRAND
@@ -59,6 +63,7 @@ Route::prefix('brand')->group(function() {
 
 	//LOGIN
 	Route::get('/login', function () { return view('auth.loginbrand'); })->name('login.brand');
+	Route::get('/notification/read', 'ProfileController@brand_read')->name('notifications.brand.read');
 
 	//TOOLS
 	Route::get('/tools', function () { return view('layouts.tools.brand.home.index'); });
@@ -66,10 +71,12 @@ Route::prefix('brand')->group(function() {
 	Route::post('/tools/newcampaign/store', 'CampaignController@store')->name('brand.campaign.store');
 	Route::get('/tools/mycampaign', 'CampaignController@index')->name('brand.campaign.index');
 	Route::get('/tools/mycampaign/start/{id}', 'CampaignController@start')->name('brand.campaign.start');
+	Route::get('/tools/mycampaign/stop/{id}', 'CampaignController@stop')->name('brand.campaign.stop');
 	Route::get('/tools/mycampaign/post/{id}', 'CampaignController@post')->name('brand.campaign.post');
 	Route::get('/tools/mycampaign/detail/{id}', 'CampaignController@show')->name('brand.campaign.detail');
 	Route::get('/tools/mycampaign/detail/draft/{id}', 'CampaignController@draft')->name('brand.campaign.draft');
 	Route::post('/tools/mycampaign/detail/draft/process/{id}', 'CampaignController@process_draft')->name('brand.campaign.process_draft');
+	Route::get('/tools/mycampaign/report/{id}', 'CampaignController@report')->name('brand.campaign.report');
 // 	Route::get('/tools/mycampaign/detail/draft/accept/{id}', 'CampaignController@accept_draft')->name('brand.campaign.accept_draft');
 // 	Route::get('/tools/mycampaign/detail/draft/decline/{id}', 'CampaignController@decline_draft')->name('brand.campaign.decline_draft');
 	Route::get('/tools/socmed', function () { return view('layouts.tools.brand.socmed.index'); });

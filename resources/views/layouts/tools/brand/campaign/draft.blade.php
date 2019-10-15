@@ -58,6 +58,7 @@
                 <tr>
                   <th>NO</th>
                   <th>IMAGE</th>
+                  <th>REMARKS</th>
                   <th>ACTION</th>
                 </tr>
                 </thead>
@@ -67,12 +68,21 @@
                 <tr>
                   <td>{{ $i }}</td>
                   <td><img class="preview" src="{{ url('/assets/images/campaign_draft/' . $detail->image) }}" alt="Image Preview" width="50%" /></td>
+                  <td><textarea rows="4" cols="50" class="form-control" name="remarks[]" placeholder="Remarks">{{ $detail->remarks }}</textarea></td>
                   @if ($detail->status == '1')
                   <td><a type="button" class="btn-sm btn-success">ACCEPTED</a></td>
                   @elseif ($detail->status == '0')
                   <td><input type="checkbox" name="post_image[]" value="{{ $detail->id }}"></td>
                   @elseif ($detail->status == '2')
-                  <td><a type="button" class="btn-sm btn-danger">DECLINE</a></td>
+                  <td>
+                    <a type="button" class="btn-sm btn-danger">DECLINE</a>
+                    <input type="checkbox" name="post_image[]" value="{{ $detail->id }}">
+                  </td>
+                  @elseif ($detail->status == '3')
+                  <td>
+                    <a type="button" class="btn-sm btn-warning">REVISED</a>
+                    <input type="checkbox" name="post_image[]" value="{{ $detail->id }}">
+                  </td>
                   @endif
                 </tr>
                 @php $i++ @endphp
@@ -84,6 +94,7 @@
               <div class="box-footer pull-left">
                 <a class="btn btn-default" href="{{ route('brand.campaign.detail' , ['id' => $data->id]) }}"><i class="fa fa-back"></i> Back</a>
               </div>
+
               <div class="box-footer pull-right">
                 <input type="submit" class="btn btn-danger" name="decline_draft" value="DECLINE" onclick="return confirm('Are You Sure?')" />
                 <input type="submit" class="btn btn-success" name="accept_draft" value="ACCEPT" onclick="return confirm('Are You Sure?')" />

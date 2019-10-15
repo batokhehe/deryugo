@@ -47,7 +47,7 @@
                   <td>{{ date('d M Y', strtotime($campaign->start_date)) . ' - ' . date('d M Y', strtotime($campaign->end_date)) }}</td>
                   <td>
                   <?php
-                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running');
+                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running', '9' => 'Stopped');
                     echo $status[$campaign->campaign_status];
                   ?></td>
                   <td>
@@ -56,6 +56,9 @@
                     @endif
                     @if ($campaign->campaign_status == '2')
                     <a href="{{ route('influencer.campaign.post', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">POST</a>
+                    @endif
+                    @if ($campaign->campaign_status == '9')
+                    <a href="{{ route('influencer.campaign.paymentoption', ['id' => $campaign->campaign_id]) }}" type="button" class="btn-sm btn-success">PAYMENT OPTION</a>
                     @endif
 
                   </td>

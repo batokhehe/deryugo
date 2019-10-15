@@ -48,10 +48,16 @@
                   <td>{{ date('d M Y', strtotime($campaign->start_date)) . ' - ' . date('d M Y', strtotime($campaign->end_date)) }}</td>
                   <td>
                   <?php
-                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running');
+                    $status = array('0' => 'Draft', '1' => 'Waiting to Start', '2' => 'Running', '9' => 'Stopped');
                     echo $status[$campaign->status];
                   ?></td>
-                  <td><a href="{{ route('brand.campaign.detail', ['id' => $campaign->id]) }}" type="button" class="btn-sm btn-success">Detail</a></td>
+                  <td><a href="{{ route('brand.campaign.detail', ['id' => $campaign->id]) }}" type="button" class="btn-sm btn-success">Detail</a> &nbsp; 
+                  <?php
+                    if($campaign->status == '9'){ ?>
+                    <a href="{{ route('brand.campaign.report', ['id' => $campaign->id]) }}" type="button" class="btn-sm btn-default"><i class="fa fa-list"></i> Report</a>
+                  <?php  }
+                  ?>
+                  </td>
                 </tr>
                 @php $i++ @endphp
                 @endforeach

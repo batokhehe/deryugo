@@ -18,6 +18,7 @@ class CreateCampaignDraftsTable extends Migration
             $table->integer('campaign_id');
             $table->integer('influencer_id');
             $table->string('image');
+            $table->string('remarks');
             $table->integer('status');
             $table->timestamps();
         });
