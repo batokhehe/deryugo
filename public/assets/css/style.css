@@ -5,7 +5,9 @@ body {
     font-weight: 300;
     font-size: 1rem;
     background: #fff;
-    font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Futura-Book',
+        sans-serif;
+
 }
 
 @font-face {
@@ -43,7 +45,8 @@ h5,
 .h3,
 .h4,
 .h5 {
-    font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Futura-Book',
+        sans-serif;
 }
 
 .border-2 {
@@ -409,7 +412,8 @@ h5,
     left: 0;
     font-size: 20px;
     top: -.3rem;
-    font-family: "icomoon";
+    font-family: 'Futura-Book',
+        sans-serif;
     content: "\e5ca";
     position: absolute;
 }
@@ -1167,7 +1171,8 @@ h5,
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: 'icomoon';
+    font-family: 'futura-pt',
+        sans-serif;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown {
@@ -1410,7 +1415,8 @@ h5,
 .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
     font-size: 12px;
     z-index: 20;
-    font-family: "icomoon";
+    font-family: 'futura-pt',
+        sans-serif;
     content: "\f078";
     position: absolute;
     top: 50%;
@@ -1977,8 +1983,7 @@ h5,
     height: 80%;
     left: 10%;
     top: 10%;
-    border-bottom: 1px solid #FFF;
-    border-top: 1px solid #FFF;
+    border: 2px solid #ffffff;
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
     -webkit-transform: scale(0, 1);
@@ -2002,7 +2007,7 @@ h5,
 }
 
 .hovereffect:hover img {
-    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+    filter: hue-rotate(333deg);
     filter: brightness(0.6);
     -webkit-filter: brightness(0.6);
 }

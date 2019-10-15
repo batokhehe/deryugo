@@ -118,8 +118,8 @@
         </div>
       </div>
       @else
-      <a href="{{ url('' . $cms_homes_images_contents_detail->desc) }}" class="btn-custom" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px;">
-        <span>{{ $cms_homes_images_contents_detail->title }}</span>
+      <a href="{{ url('' . $cms_homes_images_contents_detail->desc) }}" class="btn-custom" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px; background-color: #fff;">
+        <span style="color: #E11F27;" >{{ $cms_homes_images_contents_detail->title }}</span>
       </a>
       @endif
       @php $j++ @endphp
