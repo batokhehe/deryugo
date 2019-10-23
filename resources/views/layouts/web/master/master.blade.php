@@ -84,7 +84,7 @@
         <div class="container-fluid" style="max-width: 1010px;">
           <div class="row align-items-center">
             <div class="col-11 col-xl-2">
-              <h1 class="logo"><a class="navbar-brand" href="/progress/public"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="Image" class="img-fluid"></a></h1>
+              <h1 class="logo"><a class="navbar-brand" href="/progress/public"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="Image" class="img-fluid" style="max-width: 150px;"></a></h1>
             </div>
             <div class="col-md-10 d-none d-xl-block">
               <nav class="site-navigation" role="navigation">
