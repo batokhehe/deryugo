@@ -1,70 +1,74 @@
 @extends('layouts.web.master.master')
 @section('content')
-<div id="about" data-spy="scroll" class="site-section scrollspy-example">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-lg-4" data-aos="fade-up">
-          <div class="site-section-heading">
-            <h2>{{ $cms_headers->title }}</h2>
-          </div>
-        </div>
-        <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+<div id="about" data-spy="scroll" class="site-section scrollspy-example" style="background-image: url(assets/images/aboutus.jpg);">
+  <div class="overlay"></div>
+  <div class="container" style="padding-top: 113px;">
+    <div class="row mb-5">
+      <div class="col-lg-4" data-aos="fade-up">
+        <div class="site-section-heading">
+          <h2 style="color: #fff;">{{ $cms_headers->title }}</h2>
         </div>
       </div>
-      <div class="row align-items-center speaker">
-        <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
-          <img src="{{ url('/assets/images/about.jpg') }}" alt="Image" class="img-fluid">
+      <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+      </div>
+    </div>
+    <div class="row align-items-center speaker">
+      <div class="col-lg-6 order-lg-1">
+        <div class="bio pr-lg-5">
+          <p class="mb-4" data-aos="fade-left" data-aos-delay="400" style="text-align: justify; color: #fff;">{{ $cms_headers->desc }}</p>
         </div>
-        <div class="col-lg-6 ml-auto order-lg-1">
-          <div class="bio pr-lg-5">
-            <p class="mb-4" data-aos="fade-left" data-aos-delay="400" style="text-align: justify;">{{ $cms_headers->desc }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="site-section2" style="background-color: #000000;">
+    <div class="container">
+      <div class="col-md-12">
+        
+          <div class="col-md-12" data-aos="fade-up">
+            <div class="site-section-heading text-center">
+              <h2 style="color:#F11515;">{{ $cms_anchoring_contents->title }}</h2>
+            </div>
           </div>
-        </div>
+          <div class="col-md-12 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+            <p style="text-align: center; color:#fff; width: 70%; margin: 0 auto;">{{ $cms_anchoring_contents->desc }}</p>
+          </div>
+        
       </div>
     </div>
   </div>
 
   <div id="service" data-spy="scroll" class="site-section2 scrollspy-example">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-4" data-aos="fade-up">
-          <div class="site-section-heading">
-            <h2>{{ $cms_anchoring_contents->title }}</h2>
-          </div>
-        </div>
-        <div class="col-md-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
-          <p style="text-align: justify;">{{ $cms_anchoring_contents->desc }}</p>
-        </div>
-      </div>
+    <div class="container" style="width: 70%;">
       <div class="row align-items-center speaker">
-        <div class="col-md-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+        <div class="col-md-4 mb-5" data-aos="fade" data-aos-delay="100">
           <img src="{{ url('/assets/images/anchoring_content/' . $cms_anchoring_content_details1->image) }}" alt="Image" class="img-fluid">
         </div>
-        <div class="col-md-6 ml-auto">
-          <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200" style="text-align: right;">{{ $cms_anchoring_content_details1->title }}</h2>
+        <div class="site-section-heading col-md-8 ml-auto">
+          <h2 class="text-white mb-4" data-aos="fade-right" data-aos-delay="200" style="font-size: 30px;">{{ $cms_anchoring_content_details1->title }}</h2>
           @php $i = 1 @endphp
           @foreach ($cms_anchoring_content_details1_items as $cms_anchoring_content_details1_item)
             @if($i % 2 == 0)
             <div class="row">
-              <div class="col-md-9" style="text-align: center;padding-top: 20px;">
-                <h5 class="text-white">{{ $cms_anchoring_content_details1_item->title }}</h5>
+              <div class="col-md-3 mb-5 mt-5">
+                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-fluid img-middle">
               </div>
-              <div class="col-md-3 text-white mb-3 mb-md-0">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-fluid">
+              <div class="col-md-9" style="padding-top: 20px;">
+                <h5 class="text-white">{{ $cms_anchoring_content_details1_item->title }}</h5>
+                <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details1_item->desc }}</p>
               </div>
             </div>
-            <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details1_item->desc }}</p>
             @else
             <div class="row">
-              <div class="col-md-3">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-fluid">
+              <div class="col-md-3 mb-5 mt-5">
+                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-fluid img-middle">
               </div>
-
               <div class="col-md-9" style="margin-top: 20px;">
                 <h5 class="text-white">{{ $cms_anchoring_content_details1_item->title }}</h5>
+                <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details1_item->desc }}</p>
               </div>
             </div>
-            <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details1_item->desc }}</p>
             @endif
             @php $i++ @endphp
           @endforeach
@@ -72,34 +76,34 @@
       </div>
 
       <div class="row align-items-center speaker">
-        <div class="col-md-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
+        <div class="col-md-12 mb-5" data-aos="fade" data-aos-delay="100">
           <img src="{{ url('/assets/images/anchoring_content/' . $cms_anchoring_content_details2->image) }}" alt="Image" class="img-fluid">
         </div>
-        <div class="col-md-6 ml-auto">
-          <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200" style="text-align: right;">{{ $cms_anchoring_content_details2->title }}</h2>
+        <div class="site-section-heading col-md-8">
+          <h2 class="text-white mb-4" data-aos="fade-right" data-aos-delay="200" style="font-size: 30px;">{{ $cms_anchoring_content_details2->title }}</h2>
           @php $i = 1 @endphp
           @foreach ($cms_anchoring_content_details2_items as $cms_anchoring_content_details2_item)
             @if($i % 2 == 0)
             <div class="row">
-              <div class="col-md-9" style="text-align: center;padding-top: 20px;">
-                <h5 class="text-white">{{ $cms_anchoring_content_details2_item->title }}</h5>
+              <div class="col-md-3 mb-5 mt-5">
+                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-fluid img-middle">
               </div>
-              <div class="col-md-3 text-white mb-3 mb-md-0">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-fluid">
+              <div class="col-md-9" style="padding-top: 20px;">
+                <h5 class="text-white">{{ $cms_anchoring_content_details2_item->title }}</h5>
+                <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details2_item->desc }}</p>
               </div>
             </div>
-            <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details2_item->desc }}</p>
             @else
             <div class="row">
-              <div class="col-md-3">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-fluid">
+              <div class="col-md-3 mb-5 mt-5">
+                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-fluid img-middle">
               </div>
 
               <div class="col-md-9" style="margin-top: 20px;">
                 <h5 class="text-white">{{ $cms_anchoring_content_details2_item->title }}</h5>
+                <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details2_item->desc }}</p>
               </div>
             </div>
-            <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="text-align: justify;">{{ $cms_anchoring_content_details2_item->desc }}</p>
             @endif
             @php $i++ @endphp
           @endforeach
@@ -107,36 +111,48 @@
       </div>
     </div>
   </div>
-
-  <div id="trendnow" class="site-section2" data-aos="fade">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4 mb-5">
-          <div class="site-section-heading">
-            <h2 class="text-center">Trending Now</h2>
+  <div id="trendnow" data-aos="fade">
+    <div class="site-section3">
+      <div class="container" style="width: 56%;">
+        <div class="col-md-12" data-aos="fade-up">
+          <div class="site-section-heading text-center">
+            <h2 style="color:#F11515;">Trending Now</h2>
           </div>
-          <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200" style="text-align: center;">Podcast</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-11" style="padding-bottom: 30px;">
-          <!--Dropdown primary-->
-          <div class="dropdown">
-            <!--Trigger-->
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">Filter</button>
-            <!--Menu-->
-            <div class="dropdown-menu dropdown-primary">
-              <a class="dropdown-item" href="#">Sosial Issues</a>
-              <a class="dropdown-item" href="#">Lifestyle</a>
-              <a class="dropdown-item" href="#">Foods</a>
-              <a class="dropdown-item" href="#">Travelling</a>
-              <a class="dropdown-item" href="#">Deryugo Spot</a>
+    </div>
+  </div>
+  <div id="trendnow" class="site-section" data-aos="fade">
+    <div class="site-section" style="background-image: url(assets/images/podcast.jpg);">
+      <div class="container" style="width: 70%;">
+        <div class="row">
+            <div class="col-md-6" data-aos="fade-up">
+              <div class="site-section-heading text-left">
+                <h2 style="color:#FFF;">Podcast</h2>
+              </div>
             </div>
-          </div>
-          <!--/Dropdown primary-->
+            <div class="col-md-6"style="padding-top: 55px;">
+              <!--Dropdown primary-->
+              <div class="dropdown">
+                <!--Trigger-->
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false" style="border-radius: 30px;">Filter</button>
+                <!--Menu-->
+                <div class="dropdown-menu dropdown-primary">
+                  <a class="dropdown-item" href="#">Sosial Issues</a>
+                  <a class="dropdown-item" href="#">Lifestyle</a>
+                  <a class="dropdown-item" href="#">Foods</a>
+                  <a class="dropdown-item" href="#">Travelling</a>
+                  <a class="dropdown-item" href="#">Deryugo Spot</a>
+                </div>
+              </div>
+              <!--/Dropdown primary-->
+            </div>
         </div>
+        
       </div>
+    </div>
+    <div class="container" style="padding-top: 30px;">
       <div class="slide-one-item home-slider owl-carousel">
         <div class="row justify-content-center">
           <div class="card-carousel">
@@ -170,35 +186,36 @@
         </div>
       </div>
 
-  <div id="article" class="site-section2" data-aos="fade" style="padding-top: 0px;">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-4 mb-5">
-          <div class="site-section-heading">
-            <h2 class="text-center" style="padding-bottom: 0px;"> &nbsp; </h2>
-          </div>
-          <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200" style="text-align: center;">Article</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-11" style="padding-bottom: 30px;">
-          <!--Dropdown primary-->
-          <div class="dropdown">
-            <!--Trigger-->
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">Filter</button>
-            <!--Menu-->
-            <div class="dropdown-menu dropdown-primary">
-              <a class="dropdown-item" href="#">Sosial Issues</a>
-              <a class="dropdown-item" href="#">Lifestyle</a>
-              <a class="dropdown-item" href="#">Foods</a>
-              <a class="dropdown-item" href="#">Travelling</a>
-              <a class="dropdown-item" href="#">Deryugo Spot</a>
+  <div id="article" class="site-section" data-aos="fade">
+    <div class="site-section" style="background-image: url(assets/images/article.jpg);">
+      <div class="container" style="width: 70%;">
+        <div class="row">
+            <div class="col-md-6" data-aos="fade-up">
+              <div class="site-section-heading text-left">
+                <h2 style="color:#FFF;">Article</h2>
+              </div>
             </div>
-          </div>
-          <!--/Dropdown primary-->
+            <div class="col-md-6" style="padding-top: 55px;">
+              <!--Dropdown primary-->
+              <div class="dropdown">
+                <!--Trigger-->
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false" style="border-radius: 30px;">Filter</button>
+                <!--Menu-->
+                <div class="dropdown-menu dropdown-primary">
+                  <a class="dropdown-item" href="#">Sosial Issues</a>
+                  <a class="dropdown-item" href="#">Lifestyle</a>
+                  <a class="dropdown-item" href="#">Foods</a>
+                  <a class="dropdown-item" href="#">Travelling</a>
+                  <a class="dropdown-item" href="#">Deryugo Spot</a>
+                </div>
+              </div>
+              <!--/Dropdown primary-->
+            </div>
         </div>
       </div>
+    </div>
+    <div class="container" style="padding-top: 30px;">
       <div class="slide-one-item home-slider owl-carousel">
         <div class="row justify-content-center">
           <div class="card-carousel">
@@ -232,20 +249,30 @@
       </div>
     </div>
 
-  <div id="influencer" class="site-section2" data-aos="fade">
+  <div class="site-section2" style="background-color: #000000;">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-6 mb-5">
-          <div class="site-section-heading">
-            <h2>{{ $cms_anchoring_image_contents->title }}</h2>
+      <div class="col-md-12">
+        
+          <div class="col-md-12" data-aos="fade-up">
+            <div class="site-section-heading text-center">
+              <h2 style="color:#F11515;">{{ $cms_anchoring_image_contents->title }}</h2>
+            </div>
           </div>
-        </div>
+          <div class="col-md-12 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+            <p style="text-align: center; color:#fff; width: 70%; margin: 0 auto;">There you go....<br>
+We value them because they cool, they inspired with great and relevant content.</p>
+          </div>
+        
       </div>
-      <div class="row mb-5">
+    </div>
+  </div>
+  <div id="influencer" class="site-section2" data-aos="fade">
+    <div class="container" style="width: 70%;margin: 0 auto;">
+      <div class="row site-section2">
         @php $j = 1 @endphp
         @foreach ($cms_anchoring_image_content_details as $cms_anchoring_image_content_detail)
         @if($j == 1)
-        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+        <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="200"style="padding-right: 0px;padding-left: 5px;">
         @endif
         @if(!empty($cms_anchoring_image_content_detail->name))
         <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
@@ -253,9 +280,9 @@
           <div class="overlay">
             <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_anchoring_image_content_detail->name }} </h4>
             <h2>{{ $cms_anchoring_image_content_detail->title }}</h2>
-            <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+            <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
               <span>Read More</span>
-            </a>
+            </a> -->
           </div>
         </div>
         @else
@@ -271,9 +298,9 @@
         @endforeach
       </div>
 
-      <div class="row mb-5">
-        <div class="col-md-6 mt-5 pl-lg-5" data-aos="fade" data-aos-delay="200">
-          <h4 class="text-white" style="margin-bottom: 35px;text-align: center;">{{ $cms_anchoring_image_tiles6->title }}</h4>
+      <div class="row site-section-heading2 mb-5">
+        <div class="col-md-6 mt-5" data-aos="fade" data-aos-delay="200">
+          <h4 style="text-align: center; background-color: #4B0000; height: 60px; color:#fff;">{{ $cms_anchoring_image_tiles6->title }}</h4>
           <div class="row">
             <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="200" style="padding-right: 0px;padding-left: 5px;">
             @php $i = 0 @endphp
@@ -294,7 +321,7 @@
         </div>
 
         <div class="col-md-6 mt-5 pl-lg-5" data-aos="fade" data-aos-delay="200">
-          <h4 class="text-white" style="margin-bottom: 35px;text-align: center;">{{ $cms_anchoring_image_tiles7->title }}</h4>
+          <h4 style="text-align: center; background-color: #4B0000; height: 60px; color:#fff;">{{ $cms_anchoring_image_tiles7->title }}</h4>
           <div class="row">
             <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="200" style="padding-right: 0px;padding-left: 5px;">
             @php $i = 0 @endphp

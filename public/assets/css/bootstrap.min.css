@@ -389,7 +389,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-family: inherit;
     font-weight: 500;
     line-height: 1.2;
@@ -808,9 +808,9 @@ pre code {
 
 .col-11 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 91.66667%;
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%
+    -ms-flex: 0 0 84%;
+    flex: 0 0 84%;
+    max-width: 84%
 }
 
 .col-12 {
@@ -2818,15 +2818,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #ff5733;
-    border-color: #ff5733
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-color: #E11F27
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #ff380d;
-    border-color: #ff2d00
+    background-color: #E11F27;
+    border-color: #E11F27
 }
 
 .btn-primary.focus,
@@ -4651,7 +4651,7 @@ input[type=submit].btn-block {
     display: inline-block;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap

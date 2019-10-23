@@ -24,7 +24,7 @@
             @endif
             <div class="hovereffect nopad text-center">
                 <label class="image-checkbox">
-                <img src="{{ url('/assets/images/' . $interest->image) }}" alt="Image" class="img-fluid img-responsive">
+                <img src="{{ url('/assets/images/categories/' . $interest->image) }}" alt="Image" class="img-fluid img-responsive">
                 <input type="checkbox" name="interest[]" value="{{ $interest->id }}" />
                 <i class="fa fa-check hidden"></i>
                 <div class="overlay">

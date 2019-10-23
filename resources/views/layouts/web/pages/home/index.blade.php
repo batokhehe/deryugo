@@ -7,7 +7,7 @@
     <!-- Single Hero Slide -->
     <div class="single-hero-slide d-flex align-items-center justify-content-center">
       <!-- Slide Img -->
-      <div class="slide-img bg-img" style="background-image: url(assets/images/slider/{{ $cms_slider->image }});"></div>
+      <div class="slide-img bg-img img-fluid" style="background-image: url(assets/images/slider/{{ $cms_slider->image }});" alt="Image"></div>
       <!-- Slide Content -->
       <div class="container">
         <div class="row">
@@ -32,9 +32,34 @@
 </section>
 <!-- ##### Hero Area End ##### -->
 
+<div class="site-section2" style="background-color: #000000;">
+  <div class="container">
+      <div class="col-md-12">
+          <form class="card card-sm" style="width: 80%;margin: 0 auto; border-radius: 30px;">
+              <div class="row no-gutters align-items-center" style="width: 96%;margin: 0 auto;">
+                  <!-- <div class="col-auto">
+                      <i class="fas fa-search h4 text-body"></i>
+                  </div> -->
+                  <!--end of col-->
+                  <div class="col">
+                      <input class="form-control form-control-sm form-control-borderless" type="search" placeholder="What's Happening !" style="border-radius: 20px;">
+                  </div>
+                  <!--end of col-->
+                  <div class="col-auto">
+                      <button class="btn-sm btn-success" type="submit" style="border-radius: 30px; background-color: #E11F27;border-color: #E11F27;width: 100px;" >Search</button>
+                  </div>
+                  <!--end of col-->
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+
+
 <div class="section" style="margin-top: 50px; margin-bottom: 50px;">
   <div class="container">
-    <div class="row mb-5" style="margin-left: 160px; margin-right: 160px;">
+    <div class="row mb-5" style="width: 80%;margin: 0 auto;">
       
         <div class="site-section-heading">
           <h2>{{ $cms_homes_contents->title }}</h2>
@@ -51,7 +76,7 @@
       <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
         <img src="{{ url('/assets/images/home_content/' . $cms_homes_contents_detail->image) }}" alt="Image" class="img-fluid">
       </div>
-      <div class="col-lg-4 order-lg-1" style="margin-left: 35px;">
+      <div class="col-md-4 order-lg-1">
         <div class="site-section-heading2">
           <h2 class="text-white" data-aos="fade-left" data-aos-delay="200" style="text-align: right;margin-left: 60px; font-size: 2.5rem; margin-bottom: 30px;">
             {{ $cms_homes_contents_detail->title }}
@@ -63,13 +88,14 @@
           </p>
         </div>
       </div>
+      <div class="col-md-1"></div>
     </div>
     @else
     <div class="row align-items-center speaker" style="margin-top: 50px;">
-      <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100" style="margin-left: 35px;">
+      <div class="col-lg-6 mb-5 mb-lg-0 order-lg-1" data-aos="fade" data-aos-delay="100">
         <img src="{{ url('/assets/images/home_content/' . $cms_homes_contents_detail->image) }}" alt="Image" class="img-fluid">
       </div>
-      <div class="col-lg-4">
+      <div class="col-md-4 order-lg-2">
         <div class="site-section-heading3">
           <h2 class="text-white" data-aos="fade-right" data-aos-delay="200" style="text-align: left; font-size: 2.5rem; margin-bottom: 30px;">
             {{ $cms_homes_contents_detail->title }}
@@ -81,6 +107,7 @@
           </p>
         </div>
       </div>
+      <div class="col-md-1"></div>
     </div>
     @endif
     @php $i++; @endphp
@@ -90,14 +117,14 @@
 
 <div class="site-section2" style="background-color: #000000;">
   <div class="container">
-    <div class="row mb-5"style="margin-left: 160px; margin-right: 160px;">
+    <div class="row mb-5"style="width: 70%; margin: 0 auto;">
       <div class="">
         <div class="site-section-heading" data-aos="fade-up">
           <h2 style="color:#ffffff;">{{ $cms_homes_images_contents->title }}</h2>
         </div>
       </div>
-      <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
-        <p style="text-align: justify;"><?php echo nl2br($cms_homes_images_contents->desc); ?></p>
+      <div class="col-md-12 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+        <p style="text-align: justify; color:#ffffff;"><?php echo nl2br($cms_homes_images_contents->desc); ?></p>
       </div>
     </div>
     <div class="row mb-5">
@@ -110,11 +137,11 @@
       <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
         <img src="{{ url('/assets/images/image_content/' . $cms_homes_images_contents_detail->image) }}" alt="Image" class="img-fluid">
         <div class="overlay">
-          <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_homes_images_contents_detail->name }} </h4>
-          <h2>{{ $cms_homes_images_contents_detail->title }}</h2>
-          <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+          <h2 style="color:#ffffff;"> {{ $cms_homes_images_contents_detail->name }} </h2>
+          <h2 style="color:#ffffff;">{{ $cms_homes_images_contents_detail->title }}</h2>
+          <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
             <span>Read More</span>
-          </a>
+          </a> -->
         </div>
       </div>
       @else
@@ -136,16 +163,18 @@
 
 <div class="site-section2">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-4 ">
+
+    <div class="row mb-5"style="width: 70%; margin: 0 auto;">
+      <div class="">
         <div class="site-section-heading" data-aos="fade-up">
-            <h2>{{ $cms_homes_images_contents3->title }}</h2>
-          </div>
+          <h2>{{ $cms_homes_images_contents3->title }}</h2>
         </div>
-        <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
-          <p style="text-align: justify;">{{ $cms_homes_images_contents3->desc }}</p>
-        </div>
+      </div>
+      <div class="col-md-12 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+        <p style="text-align: justify;">{{ $cms_homes_images_contents3->desc }}</p>
+      </div>
     </div>
+
     <div class="row mb-5">
       @php $j = 1 @endphp
       @foreach ($cms_homes_images_contents_details3 as $cms_homes_images_contents_detail3)
@@ -159,7 +188,7 @@
           <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_homes_images_contents_detail3->name }} </h4>
           <h2>{{ $cms_homes_images_contents_detail3->title }}</h2>
           <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal2">
-            <span>Read More</span>
+            <!-- <span>Read More</span> -->
           </a>
         </div>
       </div>

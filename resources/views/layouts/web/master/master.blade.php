@@ -80,11 +80,11 @@
     <div class="oneMusic-main-menu">
       <!-- <div class="container"> -->
       <!-- Menu -->
-      <header class="site-navbar" role="banner">
-        <div class="container-fluid">
+      <nav class="site-navbar" role="banner">
+        <div class="container-fluid" style="max-width: 1010px;">
           <div class="row align-items-center">
             <div class="col-11 col-xl-2">
-              <h1 class="logo"><a class="navbar-brand" href="/progress/public"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="" style="max-width: 120%; margin-left: 70px;"></a></h1>
+              <h1 class="logo"><a class="navbar-brand" href="/progress/public"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="Image" class="img-fluid"></a></h1>
             </div>
             <div class="col-md-10 d-none d-xl-block">
               <nav class="site-navigation" role="navigation">
@@ -102,7 +102,7 @@
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
                 class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
           </div>
-      </header>
+      </nav>
     </div>
     <!-- </div> -->
   </header>
@@ -113,19 +113,20 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-4">
-          <h1 class="logo"><a class="navbar-brand" href="index.html"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="" style="max-width: 80%;color: white;"></a></h1>
-          <h4>Make That Something</h4>
-          <div class="text-center" style="float: left;">
-            <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400" style="margin-top: 30px;"><span>Work
-                with us</span></a>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="footer">
+            <h1 class="logo" style="width: 200px;margin: 0 auto;"><a class="navbar-brand" href="index.html"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="Image" class="img-fluid"></a></h1>
+            <h4 style="font-size: 19px;text-align: center;">Make That Something</h4>
+            <div class="text-center">
+              <a href="#" class="btn-custom1" data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;margin-bottom: 20px;"><span>Work
+                  with us</span></a>
+            </div>
           </div>
         </div>
-        <div class="col-md-3 ml-auto">
-        </div>
-        <div class="col-md-4">
-          <h2 class="footer-heading text-uppercase mb-4" style="color:white;">Connect with Us</h2>
+        
+        
+        <div class="col-md-12 text-center">
           <p>
             <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
             <a href="#" class="p-2"><span class="icon-twitter"></span></a>
@@ -136,7 +137,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <div class="border-top pt-5" style="color:white;">
+          <div class="border-top" style="color:white;">
             <p>
               Copyright &copy; <script>
                 document.write(new Date().getFullYear());
