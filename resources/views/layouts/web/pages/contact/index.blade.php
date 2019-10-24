@@ -1,7 +1,7 @@
 @extends('layouts.web.master.master')
 @section('content')
 <section class="" data-aos="fade">
-	<div data-spy="scroll" class="site-section scrollspy-example" style="background-image: url(assets/images/aboutus.jpg); padding-top: 280px;">
+	<div data-spy="scroll" class="site-section scrollspy-example" style="background-image: url('/assets/images/aboutus.jpg'); padding-top: 280px;">
 		<div class="container" style="width: 70%;">
 			<div class="col-md-6 aos-init aos-animate" data-aos="fade-up">
 				<div class="tittle text-center text-uppercase text-dark font-weight-bold mb-sm-5 mb-4"">
