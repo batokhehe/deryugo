@@ -85,7 +85,7 @@
                 <div class="row">
                   @foreach ($influencer_images as $data)
                       <div class="col-md-4">
-                          <img src="{{ $data->image }}" alt="Image" class="img-fluid" style="width: 100%;">
+                          <img src="{{ $data->image }}" alt="Image" class="img-fluid" style="width: 100%; margin-bottom: 10px;margin-right: 10px">
                       </div>
                   @endforeach
                   </div>
