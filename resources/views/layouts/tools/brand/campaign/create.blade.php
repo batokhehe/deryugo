@@ -64,19 +64,19 @@
                       <div class="input-group-btn">
                         <label type="text" class="btn btn-danger">Engagement Plan</label>
                       </div>
-                      <input type="text" class="form-control" name="engagement_plan" id="engagement_plan">
+                      <input type="text" class="form-control" name="engagement_plan" id="engagement_plan" disabled="">
                     </div>
                     <div class="input-group form-group">
                       <div class="input-group-btn">
                         <label type="text" class="btn btn-success">Budget Plan</label>
                       </div>
-                      <input type="text" class="form-control" name="budget_plan" id="budget_plan">
+                      <input type="text" class="form-control" name="budget_plan" id="budget_plan" disabled="">
                     </div>
                     <div class="input-group form-group">
                       <div class="input-group-btn">
                         <label type="text" class="btn btn-warning">Cost/Engagement</label>
                       </div>
-                      <input type="text" class="form-control" name="cost_plan" id="cost_plan">
+                      <input type="text" class="form-control" name="cost_plan" id="cost_plan" disabled="">
                     </div>
                   </div>
                   <div class="col-md-6">

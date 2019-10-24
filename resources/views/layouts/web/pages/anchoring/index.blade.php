@@ -1,6 +1,6 @@
 @extends('layouts.web.master.master')
 @section('content')
-<div id="about" data-spy="scroll" class="site-section scrollspy-example" style="background-image: url('/assets/images/aboutus.jpg');">
+<div id="about" data-spy="scroll" class="site-section scrollspy-examples" style="background-image: url('/assets/images/aboutus.jpg');">
   <div class="overlay"></div>
   <div class="container" style="padding-top: 113px;">
     <div class="row mb-5">
