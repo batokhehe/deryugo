@@ -122,7 +122,7 @@
       </div>
     </div>
   </div>
-  <div id="trendnow" class="site-section" data-aos="fade">
+  <div id="trendnow" class="site-section2" data-aos="fade">
     <div class="site-section" style="background-image: url('/assets/images/podcast.jpg');">
       <div class="container" style="width: 70%;">
         <div class="row">
@@ -186,7 +186,7 @@
         </div>
       </div>
 
-  <div id="article" class="site-section" data-aos="fade">
+  <div id="article" class="site-section2" data-aos="fade">
     <div class="site-section" style="background-image: url('/assets/images/article.jpg');">
       <div class="container" style="width: 70%;">
         <div class="row">
