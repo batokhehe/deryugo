@@ -26,7 +26,7 @@
                   <div class="form-group col-sm-12">
                     <label class="col-sm-2 control-label">Post Rules</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="name" id="name" disabled value="{{ $data->post_rules }}">
+                      <textarea class="form-control" rows="3" name="name" id="name" disabled value="{{ $data->post_rules }}" style="height:200px;">{{ $data->post_rules }}</textarea>
                     </div>
                   </div>
                   <div class="form-group col-sm-12">
