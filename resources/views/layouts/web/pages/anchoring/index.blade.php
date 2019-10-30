@@ -52,8 +52,10 @@
           @foreach ($cms_anchoring_content_details1_items as $cms_anchoring_content_details1_item)
             @if($i % 2 == 0)
             <div class="row">
-              <div class="col-md-3 mb-5 mt-5">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-fluid img-middle">
+              <div class="col-md-3 mb-5 mt-5 ">
+                <div class="contact-icon-wthree">
+                  <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-middle" style="width: 60px;">
+                </div>
               </div>
               <div class="col-md-9" style="padding-top: 20px;">
                 <h5 class="text-white">{{ $cms_anchoring_content_details1_item->title }}</h5>
@@ -153,7 +155,7 @@
         
       </div>
     </div>
-    <div class="container" style="padding-top: 30px;">
+    <!-- <div class="container" style="padding-top: 30px;">
       <div class="slide-one-item home-slider owl-carousel">
         <div class="row justify-content-center">
           <div class="card-carousel">
@@ -172,20 +174,88 @@
             @php $i++ @endphp
             @php $j++ @endphp
             @if($i > 4)
-              </div>
-            </div>
-              @if($j < 9)
-              <div class="row justify-content-center">
-                <div class="card-carousel">
-                @endif
-                @php $i = 0 @endphp
-                @endif
-                @endforeach
-                </div>
-              </div>
+          </div>
+        </div>
+        @if($j < 9)
+        <div class="row justify-content-center">
+          <div class="card-carousel">
+          @endif
+          @php $i = 0 @endphp
+          @endif
+          @endforeach
           </div>
         </div>
       </div>
+    </div> -->
+    <div class="container" style="padding-top: 30px;">
+      <div class="row">
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s1.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> 5 Top Sites Portfolio For Digital Artists </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s2.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> Yuk Intip 5 Wanita Cantik Sukses Dalam Mengelola Startup Di Indonesia </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s3.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> 6 Alasan Untuk Tidak Kencan Dengan Desainer Grafis </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s4.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> Yuk... Intip 5 Inspirasi Bisnis Sukses Rumahan </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s5.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> Intips 4 Tips Untuk Meningkatkan Penjualan Design Secara Online </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <!-- <div class="swiper-slide" style="background-image:url(./images/s6.jpg)">
+                <div class="details">
+                    <h3>By Emely Peters — Sep. 10, 2019<br><span>5 Top Sites Portfolio For Digital Artists</span></h3>
+                </div>
+            </div> -->
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 
   <div id="article" class="site-section2" data-aos="fade">
     <div class="site-section" style="background-image: url('/assets/images/article.jpg');">
@@ -216,7 +286,7 @@
         </div>
       </div>
     </div>
-    <div class="container" style="padding-top: 30px;">
+    <!-- <div class="container" style="padding-top: 30px;">
       <div class="slide-one-item home-slider owl-carousel">
         <div class="row justify-content-center">
           <div class="card-carousel">
@@ -235,20 +305,86 @@
             @php $i++ @endphp
             @php $j++ @endphp
             @if($i > 4)
-              </div>
-            </div>
+          </div>
+        </div>
               @if($j < 9)
-              <div class="row justify-content-center">
-                <div class="card-carousel">
+        <div class="row justify-content-center">
+          <div class="card-carousel">
                   @endif
                   @php $i = 0 @endphp
                   @endif
                   @endforeach
-                </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container" style="padding-top: 30px;">
+      <div class="row">
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s1.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> 5 Top Sites Portfolio For Digital Artists </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
               </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s2.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> Yuk Intip 5 Wanita Cantik Sukses Dalam Mengelola Startup Di Indonesia </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect active">
+              <img src="{{ url('/assets/images/s3.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> 6 Alasan Untuk Tidak Kencan Dengan Desainer Grafis </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s4.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> Yuk... Intip 5 Inspirasi Bisnis Sukses Rumahan </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <div class="swiper-slide hovereffect">
+              <img src="{{ url('/assets/images/s5.jpg') }}" alt="Image" class="img-fluid">
+              <div class="overlay">
+                <h4 style="color:#F94632;margin-top: 20px;"> Intips 4 Tips Untuk Meningkatkan Penjualan Design Secara Online </h4>
+                <h2>By Emely Peters — Sep.10,2019</h2>
+                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
+                  <span>Read More</span>
+                </a> -->
+              </div>
+            </div>
+            <!-- <div class="swiper-slide" style="background-image:url(./images/s6.jpg)">
+                <div class="details">
+                    <h3>By Emely Peters — Sep. 10, 2019<br><span>5 Top Sites Portfolio For Digital Artists</span></h3>
+                </div>
+            </div> -->
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
+  </div>
 
   <div class="site-section2" style="background-color: #000000;">
     <div class="container">

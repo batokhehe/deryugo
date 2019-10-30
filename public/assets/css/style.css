@@ -206,9 +206,26 @@ h5,
     right: 0;
     bottom: 0;
     content: '';
-    background: rgba(119, 0, 0, 0.9);
+    background: rgba(109, 0, 0, 0.83);
     width: 50%;
     height: 109%;
+}
+
+.contact-icon-wthree {
+    width: 85px;
+    height: 85px;
+    background:
+        #f7f7f7;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    -webkit-box-shadow: 7px 7px 10px 0 rgba(56, 56, 56, 0.21);
+    -moz-box-shadow: 7px 7px 10px 0 rgba(56, 56, 56, 0.21);
+    box-shadow: 7px 7px 10px 0 rgba(56, 56, 56, 0.21);
+    margin: 0 auto;
 }
 
 @media (min-width: 768px) {

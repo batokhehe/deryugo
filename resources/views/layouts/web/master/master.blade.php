@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{ url('/assets/fonts/flaticon/font/flaticon.css') }}">
   <link rel="stylesheet" href="{{ url('/assets/css/aos.css') }}">
   <link rel="stylesheet" href="{{ url('/assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ url('/assets/css/swiper.min.css') }}">
 
   <style>
     h1 {
@@ -61,6 +62,31 @@
     .hidden {
         display: none !important;
     }
+
+    /* SWIPER */
+    body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            /* padding-top: 50px; */
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 375px;
+
+        }
+    /* //SWIPER */
   </style>
 </head>
 
@@ -102,7 +128,7 @@
               </nav>
             </div>
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
-                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                class="site-menu-toggle js-menu-toggle" style="color: #ffffff;"><span class="icon-menu h3"></span></a></div>
           </div>
       </nav>
     </div>
@@ -281,6 +307,28 @@
           $checkbox.prop("checked",!$checkbox.prop("checked"))
         
           e.preventDefault();
+        });
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="{{ url ('/assets/js/swiper.min.js') }}"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 5,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
         });
     </script>
 
