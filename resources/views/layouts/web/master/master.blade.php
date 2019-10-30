@@ -96,7 +96,9 @@
                   <li><a href="/progress/public/anchoring/#influencer" data-target="#influencer">Inspiring Influencer</a></li>
                   <li><a href="/progress/public/contact">Contact Us</a></li>
                   <li class="cta"><a href="{{ route('register.influencer') }}">Register</a></li>
+                  
                 </ul>
+                
               </nav>
             </div>
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
@@ -119,7 +121,7 @@
             <h1 class="logo" style="width: 200px;margin: 0 auto;"><a class="navbar-brand" href="index.html"><img src="{{ url('/assets/images/DERYUGO.png') }}" alt="Image" class="img-fluid"></a></h1>
             <h4 style="font-size: 19px;text-align: center;">Make That Something</h4>
             <div class="text-center">
-              <a href="#" class="btn-custom1" data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;margin-bottom: 20px;"><span>Work
+              <a href="#" class="btn-custom3" data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;margin-bottom: 20px;"><span>Work
                   with us</span></a>
             </div>
           </div>

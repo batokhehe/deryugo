@@ -18,6 +18,10 @@ Route::get('/homecms', 'WebpageController@index');
 Route::get('/interest', 'WebpageController@interest');
 // Route::get('', function () { return view('layouts.web.pages.influencer.index'); });
 Route::get('/article', function () { return view('layouts.web.pages.article.index'); });
+Route::get('/article1', function () { return view('layouts.web.pages.article1.index'); });
+Route::get('/article2', function () { return view('layouts.web.pages.article2.index'); });
+Route::get('/article3', function () { return view('layouts.web.pages.article3.index'); });
+Route::get('/article4', function () { return view('layouts.web.pages.article4.index'); });
 Route::get('/contact', function () { return view('layouts.web.pages.contact.index'); });
 
 Auth::routes();

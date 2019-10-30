@@ -80,18 +80,14 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="mb-2">Message</label>
-									<textarea class="form-control" id="textarea" name="message" placeholder="" style="border-radius: 20px;border: 2px solid;"></textarea>
+									<textarea class="form-control" id="textarea" name="message" placeholder="" style="border-radius: 40px;border: 2px solid;"></textarea>
 								</div>
 							</div>
 							<div class="text-center" style="margin: 0 auto;">
-								<a href="#" class="btn-custom1 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;margin-bottom: 20px;">
+								<a href="#" class="btn-custom2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;margin-bottom: 20px;">
 								<span>Submit</span></a>
 							</div>
-
-
-
 						</div>
-							
 					</form>
 				</div>
 			</div>

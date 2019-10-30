@@ -1,9 +1,10 @@
 @extends('layouts.web.master.master')
 @section('content')
 <div id="about" data-spy="scroll" class="site-section scrollspy-examples" style="background-image: url('/assets/images/aboutus.jpg');">
-  <div class="overlay"></div>
+  
   <div class="container" style="padding-top: 113px;">
     <div class="row mb-5">
+      <div class="overlay3"></div>
       <div class="col-lg-4" data-aos="fade-up">
         <div class="site-section-heading">
           <h2 style="color: #fff;">{{ $cms_headers->title }}</h2>
