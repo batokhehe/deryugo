@@ -397,7 +397,7 @@
           </div>
           <div class="col-md-12 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
             <p style="text-align: center; color:#fff; width: 70%; margin: 0 auto;">There you go....<br>
-We value them because they cool, they inspired with great and relevant content.</p>
+            We value them because they cool, they inspired with great and relevant content.</p>
           </div>
         
       </div>
