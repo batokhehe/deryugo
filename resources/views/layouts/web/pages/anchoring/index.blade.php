@@ -67,7 +67,9 @@
             @else
             <div class="row">
               <div class="col-md-3 mb-5 mt-5">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-fluid img-middle">
+                <div class="contact-icon-wthree">
+                  <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details1_item->image ) }}" alt="" class="img-middle" style="width: 60px;">
+                </div>
               </div>
               <div class="col-md-9" style="margin-top: 20px;">
                 <h5 class="text-white">{{ $cms_anchoring_content_details1_item->title }}</h5>
@@ -91,7 +93,9 @@
             @if($i % 2 == 0)
             <div class="row">
               <div class="col-md-3 mb-5 mt-5">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-fluid img-middle">
+                <div class="contact-icon-wthree">
+                  <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-middle" style="width: 60px;">
+                </div>
               </div>
               <div class="col-md-9" style="padding-top: 20px;">
                 <h5 class="text-white">{{ $cms_anchoring_content_details2_item->title }}</h5>
@@ -101,7 +105,9 @@
             @else
             <div class="row">
               <div class="col-md-3 mb-5 mt-5">
-                <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-fluid img-middle">
+                <div class="contact-icon-wthree">
+                  <img src="{{ url('/assets/images/anchoring_content_item/' . $cms_anchoring_content_details2_item->image ) }}" alt="" class="img-middle" style="width: 60px;">
+                </div>
               </div>
 
               <div class="col-md-9" style="margin-top: 20px;">
