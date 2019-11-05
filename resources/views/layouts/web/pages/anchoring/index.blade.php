@@ -3,8 +3,9 @@
 <div id="about" data-spy="scroll" class="site-section scrollspy-examples" style="background-image: url('/assets/images/aboutus.jpg');">
   
   <div class="container" style="padding-top: 113px;">
+  <div class="overlay3"></div>
     <div class="row mb-5">
-      <div class="overlay3"></div>
+      
       <div class="col-lg-4" data-aos="fade-up">
         <div class="site-section-heading">
           <h2 style="color: #fff;">{{ $cms_headers->title }}</h2>
@@ -20,6 +21,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 </div>
 
@@ -195,51 +197,111 @@
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s1.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> 5 Top Sites Portfolio For Digital Artists </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
-                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
-                  <span>Read More</span>
-                </a> -->
+                <div id="player">
+                  <div class="info">
+                    <div class="progress-bar">
+                      <div class="time--current">1:25</div>
+                      <div class="time--total">-3:15</div>
+                          <div class="fill"></div>
+                    </div>
+                    <div class="currently-playing">
+                      <h2 class="song-name">Symphony</h2>
+                      <h3 class="artist-name">Clean Bandit ft. Zara Larsson</h3>
+                    </div>
+                    <div class="controls">
+                      <div class="play"><i class="fa fa-play" style="font-size:25px;"></i></div>
+                      <div class="pause"><i class="fa fa-pause" style="font-size:25px;"></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s2.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> Yuk Intip 5 Wanita Cantik Sukses Dalam Mengelola Startup Di Indonesia </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
-                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
-                  <span>Read More</span>
-                </a> -->
+                <div id="player">
+                  <div class="info">
+                    <div class="progress-bar">
+                      <div class="time--current">1:25</div>
+                      <div class="time--total">-3:15</div>
+                          <div class="fill"></div>
+                    </div>
+                    <div class="currently-playing">
+                      <h2 class="song-name">Symphony</h2>
+                      <h3 class="artist-name">Clean Bandit ft. Zara Larsson</h3>
+                    </div>
+                    <div class="controls">
+                      <div class="play"><i class="fa fa-play" style="font-size:25px;"></i></div>
+                      <div class="pause"><i class="fa fa-pause" style="font-size:25px;"></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="swiper-slide hovereffect">
+            <div class="swiper-slide hovereffect active">
               <img src="{{ url('/assets/images/s3.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> 6 Alasan Untuk Tidak Kencan Dengan Desainer Grafis </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
-                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
-                  <span>Read More</span>
-                </a> -->
+                <div id="player">
+                  <div class="info">
+                    <div class="progress-bar">
+                      <div class="time--current">1:25</div>
+                      <div class="time--total">-3:15</div>
+                          <div class="fill"></div>
+                    </div>
+                    <div class="currently-playing">
+                      <h2 class="song-name">Symphony</h2>
+                      <h3 class="artist-name">Clean Bandit ft. Zara Larsson</h3>
+                    </div>
+                    <div class="controls">
+                      <div class="play"><i class="fa fa-play" style="font-size:25px;"></i></div>
+                      <div class="pause"><i class="fa fa-pause" style="font-size:25px;"></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s4.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> Yuk... Intip 5 Inspirasi Bisnis Sukses Rumahan </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
-                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
-                  <span>Read More</span>
-                </a> -->
+                <div id="player">
+                  <div class="info">
+                    <div class="progress-bar">
+                      <div class="time--current">1:25</div>
+                      <div class="time--total">-3:15</div>
+                          <div class="fill"></div>
+                    </div>
+                    <div class="currently-playing">
+                      <h2 class="song-name">Symphony</h2>
+                      <h3 class="artist-name">Clean Bandit ft. Zara Larsson</h3>
+                    </div>
+                    <div class="controls">
+                      <div class="play"><i class="fa fa-play" style="font-size:25px;"></i></div>
+                      <div class="pause"><i class="fa fa-pause" style="font-size:25px;"></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s5.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> Intips 4 Tips Untuk Meningkatkan Penjualan Design Secara Online </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
-                <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
-                  <span>Read More</span>
-                </a> -->
+                <div id="player">
+                  <div class="info">
+                    <div class="progress-bar">
+                      <div class="time--current">1:25</div>
+                      <div class="time--total">-3:15</div>
+                          <div class="fill"></div>
+                    </div>
+                    <div class="currently-playing">
+                      <h2 class="song-name">Symphony</h2>
+                      <h3 class="artist-name">Clean Bandit ft. Zara Larsson</h3>
+                    </div>
+                    <div class="controls">
+                      <div class="play"><i class="fa fa-play" style="font-size:25px;"></i></div>
+                      <div class="pause"><i class="fa fa-pause" style="font-size:25px;"></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- <div class="swiper-slide" style="background-image:url(./images/s6.jpg)">
@@ -326,8 +388,9 @@
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s1.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> 5 Top Sites Portfolio For Digital Artists </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
+                <h4 style="color:#FFF;margin-top: 20px;"> 5 Top Sites Portfolio For Digital Artists </h4>
+                <h6 style="color:#F94632; margin-top: 45px;">By Emely Peters — Sep.10,2019</h6>
+                <a href="#"><span class="fa fa-newspaper-o" style="font-size: 50px;"></span></a>
                 <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
                   <span>Read More</span>
                 </a> -->
@@ -336,8 +399,9 @@
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s2.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> Yuk Intip 5 Wanita Cantik Sukses Dalam Mengelola Startup Di Indonesia </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
+                <h4 style="color:#FFF;margin-top: 20px;"> Yuk Intip 5 Wanita Cantik Sukses Dalam Mengelola Startup Di Indonesia </h4>
+                <h6 style="color:#F94632; margin-top: 45px;">By Emely Peters — Sep.10,2019</h6>
+                <a href="#"><span class="fa fa-newspaper-o" style="font-size: 50px;"></span></a>
                 <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
                   <span>Read More</span>
                 </a> -->
@@ -346,8 +410,9 @@
             <div class="swiper-slide hovereffect active">
               <img src="{{ url('/assets/images/s3.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> 6 Alasan Untuk Tidak Kencan Dengan Desainer Grafis </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
+                <h4 style="color:#FFF;margin-top: 20px;"> 6 Alasan Untuk Tidak Kencan Dengan Desainer Grafis </h4>
+                <h6 style="color:#F94632; margin-top: 45px;">By Emely Peters — Sep.10,2019</h6>
+                <a href="#"><span class="fa fa-newspaper-o" style="font-size: 50px;"></span></a>
                 <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
                   <span>Read More</span>
                 </a> -->
@@ -356,8 +421,9 @@
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s4.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> Yuk... Intip 5 Inspirasi Bisnis Sukses Rumahan </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
+                <h4 style="color:#FFF;margin-top: 20px;"> Yuk... Intip 5 Inspirasi Bisnis Sukses Rumahan </h4>
+                <h6 style="color:#F94632; margin-top: 45px;">By Emely Peters — Sep.10,2019</h6>
+                <a href="#"><span class="fa fa-newspaper-o" style="font-size: 50px;"></span></a>
                 <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
                   <span>Read More</span>
                 </a> -->
@@ -366,8 +432,9 @@
             <div class="swiper-slide hovereffect">
               <img src="{{ url('/assets/images/s5.jpg') }}" alt="Image" class="img-fluid">
               <div class="overlay">
-                <h4 style="color:#F94632;margin-top: 20px;"> Intips 4 Tips Untuk Meningkatkan Penjualan Design Secara Online </h4>
-                <h2>By Emely Peters — Sep.10,2019</h2>
+                <h4 style="color:#FFF;margin-top: 20px;"> Intips 4 Tips Untuk Meningkatkan Penjualan Design Secara Online </h4>
+                <h6 style="color:#F94632; margin-top: 45px;">By Emely Peters — Sep.10,2019</h6>
+                <a href="#"><span class="fa fa-newspaper-o" style="font-size: 50px;"></span></a>
                 <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
                   <span>Read More</span>
                 </a> -->
@@ -415,8 +482,8 @@
         <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
           <img src="{{ url('/assets/images/anchoring_image_content/' . $cms_anchoring_image_content_detail->image) }}" alt="Image" class="img-fluid">
           <div class="overlay">
-            <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_anchoring_image_content_detail->name }} </h4>
-            <h2>{{ $cms_anchoring_image_content_detail->title }}</h2>
+            <h4 style="color:#FFF;margin-top: 40px;"> {{ $cms_anchoring_image_content_detail->name }} </h4>
+            <h2 style="color:#F94632;">{{ $cms_anchoring_image_content_detail->title }}</h2>
             <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
               <span>Read More</span>
             </a> -->
@@ -437,7 +504,9 @@
 
       <div class="row site-section-heading2 mb-5">
         <div class="col-md-6 mt-5" data-aos="fade" data-aos-delay="200">
-          <h4 style="text-align: center; background-color: #4B0000; height: 60px; color:#fff;">{{ $cms_anchoring_image_tiles6->title }}</h4>
+          
+            <h4 style="text-align: center; background-color: #4B0000;  color:#fff; padding-top: 15px;padding-bottom: 15px;">{{ $cms_anchoring_image_tiles6->title }}</h4>
+        
           <div class="row">
             <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="200" style="padding-right: 0px;padding-left: 5px;">
             @php $i = 0 @endphp
@@ -458,7 +527,7 @@
         </div>
 
         <div class="col-md-6 mt-5 pl-lg-5" data-aos="fade" data-aos-delay="200">
-          <h4 style="text-align: center; background-color: #4B0000; height: 60px; color:#fff;">{{ $cms_anchoring_image_tiles7->title }}</h4>
+          <h4 style="text-align: center; background-color: #4B0000; padding-top: 15px;padding-bottom: 15px; color:#fff;">{{ $cms_anchoring_image_tiles7->title }}</h4>
           <div class="row">
             <div class="col-md-6 col-lg-4 mb-1 mb-lg-0" data-aos="fade" data-aos-delay="200" style="padding-right: 0px;padding-left: 5px;">
             @php $i = 0 @endphp

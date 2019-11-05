@@ -121,8 +121,18 @@
                   <li><a href="/progress/public/anchoring/#trendnow" data-target="#trendnow">Trend Now</a></li>
                   <li><a href="/progress/public/anchoring/#influencer" data-target="#influencer">Inspiring Influencer</a></li>
                   <li><a href="/progress/public/contact">Contact Us</a></li>
-                  <li class="cta"><a href="{{ route('register.influencer') }}">Register</a></li>
-                  
+                  <!-- <li class="cta"><a href="{{ route('register.influencer') }}">Register</a></li> -->
+                  <!-- Dropdown -->
+                  <div class="dropdown" style="padding-top: 13px;">
+                    <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 13px;">
+                      Register
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">LOGIN</a>
+                      <a class="dropdown-item" href="#">WHAT'S YOUR INTEREST</a>
+                      <a class="dropdown-item" href="#">EXPLORE AS A BRAND</a>
+                    </div>
+                  </div>
                 </ul>
                 
               </nav>
@@ -330,6 +340,43 @@
                 el: '.swiper-pagination',
             },
         });
+    </script>
+
+    <!-- Audio Player -->
+    <script>
+    //like & shuffle button
+      $('.heart').click(function(){
+        $(this).toggleClass('clicked');
+      });
+
+      $('.shuffle').click(function(){
+        $(this).toggleClass('clicked');
+      });
+
+      //show info box on hover
+      $('#player').hover(function(){ 
+        $('.info').toggleClass('up');
+      });
+
+      //music player settings
+
+      let audio = new Audio('http://music.dawnfoxes.com/_fxs_/_upls_/_sngs_/UK/clean_bandit-symphony-ft-zara_larsson.mp3');
+
+      $('.pause').hide(); //hide pause button until clicked
+
+      //play button
+      $('.play').click(function(){
+        audio.play();
+        $('.play').hide();
+        $('.pause').show();
+      });
+
+      //pause button
+      $('.pause').click(function(){
+        audio.pause();
+        $('.play').show();
+        $('.pause').hide();
+      });
     </script>
 
 </body>

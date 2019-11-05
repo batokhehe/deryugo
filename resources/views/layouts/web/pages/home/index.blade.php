@@ -137,7 +137,7 @@
       <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
         <img src="{{ url('/assets/images/image_content/' . $cms_homes_images_contents_detail->image) }}" alt="Image" class="img-fluid">
         <div class="overlay">
-          <h2 style="color:#ffffff;"> {{ $cms_homes_images_contents_detail->name }} </h2>
+          <h4 style="color:#F94632;margin-top: 50px;"> {{ $cms_homes_images_contents_detail->name }} </h4>
           <h2 style="color:#ffffff;">{{ $cms_homes_images_contents_detail->title }}</h2>
           <!-- <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal1">
             <span>Read More</span>
@@ -185,7 +185,7 @@
       <div class="hovereffect" @if($j != 1) style="margin-top: 30px;" @endif>
         <img src="{{ url('/assets/images/image_content/' . $cms_homes_images_contents_detail3->image) }}" alt="Image" class="img-fluid">
         <div class="overlay">
-          <h4 style="color:#F94632;margin-top: 20px;"> {{ $cms_homes_images_contents_detail3->name }} </h4>
+          <h4 style="color:#F94632;margin-top: 50px;"> {{ $cms_homes_images_contents_detail3->name }} </h4>
           <h2>{{ $cms_homes_images_contents_detail3->title }}</h2>
           <a href="#" class="btn-custom" style="background: #3f404600;" data-aos="fade-up" data-aos-delay="500" data-toggle="modal" data-target="#portfolioModal2">
             <!-- <span>Read More</span> -->

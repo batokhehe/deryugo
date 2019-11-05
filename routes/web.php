@@ -22,6 +22,7 @@ Route::get('/article1', function () { return view('layouts.web.pages.article1.in
 Route::get('/article2', function () { return view('layouts.web.pages.article2.index'); });
 Route::get('/article3', function () { return view('layouts.web.pages.article3.index'); });
 Route::get('/article4', function () { return view('layouts.web.pages.article4.index'); });
+Route::get('/article5', function () { return view('layouts.web.pages.article5.index'); });
 Route::get('/contact', function () { return view('layouts.web.pages.contact.index'); });
 
 Auth::routes();
